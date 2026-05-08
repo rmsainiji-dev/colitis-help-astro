@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Biologics for Ulcerative Colitis',
+  url: 'https://colitishelpusa.com/biologics-for-ulcerative-colitis',
+};
+
+const relatedArticles = [
+  { href: '/ulcerative-colitis-treatment-options', title: 'All UC treatment options' },
+  { href: '/jak-inhibitors-ulcerative-colitis', title: 'JAK inhibitors for UC' },
+  { href: '/ulcerative-colitis-insurance-coverage', title: 'Insurance coverage for UC treatment' },
+];
+---
+
+<BaseLayout
+  title="Biologics for Ulcerative Colitis: A Plain-English Guide"
+  description="Biologics target the immune system to reduce UC inflammation. Learn how they work, common examples, and what to ask your GI doctor before starting one."
+  canonical="/biologics-for-ulcerative-colitis"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">Biologics for UC: how they work and what to ask</h1>
+      <QuickAnswerBox>
+        Biologics are medications that target specific proteins in the immune system to reduce inflammation. They are used for moderate to severe UC when other treatments have not worked well enough. They are given by injection or infusion, not as pills.
+      </QuickAnswerBox>
+      <p style="color: #5C5C56">Information about treatment options is educational. Speak with your licensed healthcare provider before making any treatment decisions.</p>
+      <h2>What are biologics?</h2>
+      <p>Unlike traditional medications, biologics are derived from living cells and are designed to target specific parts of the immune system involved in inflammation. In UC, certain proteins — particularly TNF-alpha and cell adhesion molecules — play a key role in triggering and sustaining inflammation. Biologics block these proteins to reduce inflammation in the colon.</p>
+      <h2>Types of biologics used for UC</h2>
+      <ul>
+        <li><strong>TNF inhibitors (anti-TNF):</strong> These block TNF-alpha, a protein that promotes inflammation. Examples include infliximab and adalimumab. They can be given by infusion or self-injection.</li>
+        <li><strong>Integrin inhibitors (anti-integrin):</strong> These block white blood cells from entering the gut tissue. Vedolizumab is an example, and it works specifically in the gut rather than throughout the whole body.</li>
+        <li><strong>IL-12/23 inhibitors:</strong> Target specific signaling proteins. Ustekinumab was approved for UC in some cases.</li>
+      </ul>
+      <h2>How are biologics given?</h2>
+      <p>Biologics are typically given by subcutaneous injection (a self-administered shot) or intravenous infusion (IV drip in a clinic). The frequency varies — some are weekly, some every few weeks or months. Your healthcare provider will explain the schedule.</p>
+      <h2>Who are biologics for?</h2>
+      <p>Biologics are generally considered for people with moderate to severe UC who have not responded adequately to aminosalicylates, corticosteroids, or immunosuppressants. They may also be used when other treatments cause significant side effects.</p>
+      <h2>Questions to ask your GI doctor</h2>
+      <ul>
+        <li>Is a biologic the right next step for my level of disease?</li>
+        <li>Which biologic would you recommend and why?</li>
+        <li>How long before I would expect to see results?</li>
+        <li>What tests do I need before starting (TB test, etc.)?</li>
+        <li>Will my insurance cover this medication? Are there patient support programs?</li>
+      </ul>
+      <h2>When to contact a doctor</h2>
+      <p>If your current medications are not controlling your symptoms, ask your GI doctor whether a biologic may be appropriate for you. Do not stop your current medication without discussing it first.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Understand insurance coverage for biologics.</p>
+      <CTAButton href="/uc-insurance-checklist" variant="primary" size="lg">Understand Insurance Coverage for Biologics</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

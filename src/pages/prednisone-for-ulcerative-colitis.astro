@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Prednisone for Ulcerative Colitis',
+  url: 'https://colitishelpusa.com/prednisone-for-ulcerative-colitis',
+};
+
+const relatedArticles = [
+  { href: '/ulcerative-colitis-treatment-options', title: 'All UC treatment options' },
+  { href: '/biologics-for-ulcerative-colitis', title: 'Biologics for UC' },
+  { href: '/mesalamine-not-working-ulcerative-colitis', title: 'What to do when mesalamine stops working' },
+];
+---
+
+<BaseLayout
+  title="Prednisone for Ulcerative Colitis: What Patients Should Know"
+  description="Prednisone can help control UC flares quickly but is usually used short-term. Learn how it works, common side effects, and what to discuss with your doctor."
+  canonical="/prednisone-for-ulcerative-colitis"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">Prednisone for UC: what to know before starting</h1>
+      <QuickAnswerBox>
+        Prednisone is a corticosteroid used to quickly control UC flares. It works fast but is generally used for short periods due to side effects. It is not a long-term maintenance treatment for UC.
+      </QuickAnswerBox>
+      <p style="color: #5C5C56">Information about treatment options is educational. Speak with your licensed healthcare provider before making any treatment decisions.</p>
+      <h2>What is prednisone and how does it work?</h2>
+      <p>Prednisone is a corticosteroid — a type of anti-inflammatory medication that broadly suppresses the immune system. In UC, it is used to bring an active flare under control quickly. Unlike mesalamine, which works locally in the colon, prednisone works throughout the body.</p>
+      <h2>When is prednisone used for UC?</h2>
+      <p>Prednisone is typically used when UC symptoms are moderate to severe and need to be controlled quickly. It is not used as a long-term maintenance therapy. Once symptoms improve, your doctor will taper the dose gradually over weeks — do not stop it suddenly.</p>
+      <h2>Common side effects</h2>
+      <p>Short-term use can cause:</p>
+      <ul>
+        <li>Mood changes (irritability, anxiety, or euphoria)</li>
+        <li>Increased appetite and weight gain</li>
+        <li>Difficulty sleeping</li>
+        <li>Blood sugar changes (important for people with diabetes)</li>
+        <li>Fluid retention and swelling</li>
+      </ul>
+      <p>Long-term use carries more serious risks including bone density loss, cataracts, and increased infection risk. This is why doctors aim to minimize prednisone use over time.</p>
+      <h2>What if you need prednisone repeatedly?</h2>
+      <p>If you find yourself needing prednisone more than once or twice per year, it may be a sign that your maintenance treatment is not working well enough. Talk to your GI doctor about whether a biologic or other step-up therapy might be appropriate.</p>
+      <h2>When to contact a doctor</h2>
+      <p>Contact your doctor before changing your prednisone dose. Do not stop prednisone suddenly — the dose must be tapered under medical guidance. Report new or worsening symptoms while on prednisone promptly.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options?</p>
+      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">Check My UC Care Options</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

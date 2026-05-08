@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'IBD vs IBS: Understanding the Difference',
+  url: 'https://colitishelpusa.com/ibd-vs-ibs',
+};
+
+const relatedArticles = [
+  { href: '/crohns-vs-ulcerative-colitis', title: "Crohn's vs ulcerative colitis" },
+  { href: '/ulcerative-colitis-symptoms', title: 'UC symptoms overview' },
+  { href: '/ulcerative-colitis', title: 'Ulcerative colitis guide' },
+];
+---
+
+<BaseLayout
+  title="IBD vs IBS: What is the Difference?"
+  description="IBD and IBS can cause similar symptoms but are very different conditions. Learn what sets them apart and why getting the right diagnosis matters."
+  canonical="/ibd-vs-ibs"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">IBD vs IBS: understanding the difference</h1>
+      <QuickAnswerBox>
+        IBD (inflammatory bowel disease) and IBS (irritable bowel syndrome) both cause digestive symptoms, but they are very different conditions. IBD involves measurable inflammation and tissue damage. IBS does not — it is a functional disorder of how the gut works. The treatments are completely different.
+      </QuickAnswerBox>
+      <h2>What is IBD?</h2>
+      <p>Inflammatory bowel disease (IBD) is an umbrella term for chronic conditions involving measurable inflammation of the digestive tract. The two main types are ulcerative colitis and Crohn's disease. IBD causes visible damage to the lining of the gut that can be detected through colonoscopy, biopsy, or imaging.</p>
+      <h2>What is IBS?</h2>
+      <p>Irritable bowel syndrome (IBS) is a functional gastrointestinal disorder — meaning the gut works differently, but there is no visible inflammation or tissue damage. IBS involves symptoms like abdominal pain, bloating, and changes in bowel habits (diarrhea, constipation, or both). It affects roughly 10–15% of the US population.</p>
+      <h2>Key differences</h2>
+      <ul>
+        <li><strong>Inflammation:</strong> IBD involves real inflammation. IBS does not.</li>
+        <li><strong>Blood in stool:</strong> Common in UC (a type of IBD). Not a feature of IBS — blood should prompt evaluation for another cause.</li>
+        <li><strong>Diagnosis:</strong> IBD is diagnosed via colonoscopy, biopsy, or imaging. IBS is diagnosed based on symptoms and by ruling out other conditions.</li>
+        <li><strong>Complications:</strong> IBD can lead to complications like anemia, nutritional deficiencies, and colon damage. IBS does not cause intestinal damage.</li>
+        <li><strong>Treatment:</strong> IBD is treated with anti-inflammatory medications, biologics, and sometimes surgery. IBS is managed with diet, stress management, and symptom-targeted medications.</li>
+      </ul>
+      <h2>Can you have both IBD and IBS?</h2>
+      <p>Yes. Some people with IBD also experience IBS-like symptoms even when their IBD is in remission. This is sometimes called IBS-IBD overlap. It is important to distinguish between symptoms caused by active IBD inflammation and IBS-type symptoms so treatment is targeted appropriately.</p>
+      <h2>Why does the distinction matter?</h2>
+      <p>Getting the right diagnosis matters because the treatments are completely different. Taking IBD medications when you have IBS, or vice versa, will not address the underlying problem. If you have persistent bowel symptoms, seek a proper evaluation from a gastroenterologist.</p>
+      <h2>When to contact a doctor</h2>
+      <p>Contact your healthcare provider if you have persistent diarrhea, blood in stool, significant abdominal pain, or weight loss. These symptoms may suggest IBD and warrant proper evaluation — not just a presumptive IBS diagnosis.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options?</p>
+      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">Check My UC Care Options</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

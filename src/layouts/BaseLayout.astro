@@ -1,0 +1,53 @@
+---
+import '../styles/globals.css';
+import DisclaimerBanner from '../components/layout/DisclaimerBanner';
+import Navbar from '../components/layout/Navbar';
+import Footer from '../components/layout/Footer';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  schema?: object;
+}
+
+const { title, description, canonical, schema } = Astro.props;
+const siteUrl = 'https://colitishelpusa.com';
+const canonicalUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ColitisHelpUSA.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Colitis Help USA',
+      url: 'https://colitishelpusa.com',
+      description: 'Patient education and care-navigation information for people living with ulcerative colitis in the USA.',
+    })} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col" style="background-color: #FAFAF8; color: #5C5C56; font-family: 'Inter', sans-serif;">
+    <DisclaimerBanner />
+    <Navbar client:load />
+    <div class="flex-1">
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>

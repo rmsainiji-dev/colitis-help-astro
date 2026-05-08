@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'JAK Inhibitors for Ulcerative Colitis',
+  url: 'https://colitishelpusa.com/jak-inhibitors-ulcerative-colitis',
+};
+
+const relatedArticles = [
+  { href: '/biologics-for-ulcerative-colitis', title: 'Biologics for UC' },
+  { href: '/ulcerative-colitis-treatment-options', title: 'All UC treatment options' },
+  { href: '/ulcerative-colitis-insurance-coverage', title: 'Insurance coverage for UC treatment' },
+];
+---
+
+<BaseLayout
+  title="JAK Inhibitors for Ulcerative Colitis: What Patients Should Know"
+  description="JAK inhibitors are oral medications for moderate-to-severe UC. Learn how they differ from biologics and what questions to raise with your GI doctor."
+  canonical="/jak-inhibitors-ulcerative-colitis"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">JAK inhibitors for UC: a patient overview</h1>
+      <QuickAnswerBox>
+        JAK inhibitors are a newer class of oral medications for moderate to severe UC. Unlike biologics (which are injected or infused), JAK inhibitors are taken as pills. They work by blocking signaling pathways inside immune cells that drive inflammation.
+      </QuickAnswerBox>
+      <p style="color: #5C5C56">Information about treatment options is educational. Speak with your licensed healthcare provider before making any treatment decisions.</p>
+      <h2>What are JAK inhibitors?</h2>
+      <p>JAK inhibitors (Janus kinase inhibitors) are a class of targeted therapies that block specific enzymes inside immune cells called Janus kinases. These enzymes help transmit signals that lead to inflammation. By blocking these signals, JAK inhibitors reduce the inflammatory response that drives UC symptoms.</p>
+      <h2>How are they different from biologics?</h2>
+      <p>The biggest practical difference is that JAK inhibitors are oral medications — taken as pills — while biologics are given by injection or infusion. JAK inhibitors also work inside the cell rather than targeting proteins outside the cell, which is how biologics work.</p>
+      <h2>Who are JAK inhibitors for?</h2>
+      <p>Like biologics, JAK inhibitors are used for moderate to severe UC, typically in people who have not responded adequately to aminosalicylates or immunosuppressants. They may also be considered after a biologic has not worked or has stopped working.</p>
+      <h2>What should patients know about safety?</h2>
+      <p>JAK inhibitors carry a boxed warning from the FDA regarding risks including serious infections, blood clots, and other serious side effects. Your doctor will review these risks with you, consider your individual risk profile, and monitor you closely if a JAK inhibitor is prescribed.</p>
+      <h2>Questions to ask your GI doctor</h2>
+      <ul>
+        <li>Is a JAK inhibitor appropriate for my level of disease activity?</li>
+        <li>How does the risk profile compare to biologics in my situation?</li>
+        <li>What monitoring will be needed while I am taking this medication?</li>
+        <li>Will my insurance cover this, and is there a patient assistance program?</li>
+      </ul>
+      <h2>When to contact a doctor</h2>
+      <p>If your symptoms are not well-controlled on your current treatment, talk to your GI doctor about whether a JAK inhibitor or biologic may be an option for you.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options?</p>
+      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">Check My UC Care Options</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

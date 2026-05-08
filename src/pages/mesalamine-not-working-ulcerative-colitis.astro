@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Mesalamine Not Working for UC',
+  url: 'https://colitishelpusa.com/mesalamine-not-working-ulcerative-colitis',
+};
+
+const relatedArticles = [
+  { href: '/ulcerative-colitis-treatment-options', title: 'All UC treatment options' },
+  { href: '/biologics-for-ulcerative-colitis', title: 'Biologics for UC explained' },
+  { href: '/jak-inhibitors-ulcerative-colitis', title: 'JAK inhibitors for UC' },
+];
+---
+
+<BaseLayout
+  title="Mesalamine Not Working for UC? Here's What to Know"
+  description="If mesalamine or 5-ASA medications aren't controlling your UC symptoms, there may be other options. Learn what to discuss with your GI doctor."
+  canonical="/mesalamine-not-working-ulcerative-colitis"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">What to do when mesalamine isn't working for UC</h1>
+      <QuickAnswerBox>
+        If mesalamine (5-ASA) is no longer controlling your UC, it may be time to discuss stepping up to a different treatment. Options include immunosuppressants, biologics, or JAK inhibitors. Talk to your GI doctor — do not stop your current medication without guidance.
+      </QuickAnswerBox>
+      <h2>How do you know if mesalamine has stopped working?</h2>
+      <p>Signs that mesalamine may not be controlling your UC include:</p>
+      <ul>
+        <li>Return of symptoms like blood in stool, diarrhea, or cramping</li>
+        <li>More frequent flares than before</li>
+        <li>Needing steroids (prednisone) more than once or twice a year to manage symptoms</li>
+        <li>Symptoms that are getting progressively worse despite taking medication as prescribed</li>
+      </ul>
+      <h2>Why might mesalamine stop working?</h2>
+      <p>Mesalamine is most effective for mild to moderate UC. If your disease has progressed or inflammation has spread further into the colon, a medication that works on a broader or different mechanism may be needed. Some people also develop what appears to be a tolerance, though this is debated.</p>
+      <p>It is also worth confirming with your doctor that you are taking mesalamine correctly — the dose, timing, and formulation (oral vs rectal) all matter for effectiveness.</p>
+      <h2>What are the next steps if mesalamine isn't working?</h2>
+      <p>Your GI doctor may consider:</p>
+      <ul>
+        <li><strong>Optimizing mesalamine:</strong> Ensuring the right dose and formulation for where your inflammation is</li>
+        <li><strong>Adding a corticosteroid:</strong> Short-term use of prednisone to bring active inflammation under control</li>
+        <li><strong>Immunosuppressants:</strong> Medications like azathioprine that reduce immune system activity</li>
+        <li><strong>Biologics:</strong> Targeted therapies for moderate to severe UC</li>
+        <li><strong>JAK inhibitors:</strong> Oral options for moderate to severe disease</li>
+      </ul>
+      <h2>Questions to ask your GI doctor</h2>
+      <ul>
+        <li>Is mesalamine the right treatment for my current level of disease activity?</li>
+        <li>Should I be stepping up to a biologic or immunosuppressant?</li>
+        <li>What are the risks and benefits of my next treatment option?</li>
+        <li>Will my insurance cover biologic medications?</li>
+      </ul>
+      <h2>When to contact a doctor</h2>
+      <p>If you feel like your current medication is not working, do not wait until your next scheduled appointment — call your GI doctor sooner. Untreated active inflammation can lead to complications over time.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options?</p>
+      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">Check My UC Care Options</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

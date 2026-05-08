@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import EmergencyWarning from '../components/layout/EmergencyWarning';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Ulcerative Colitis Symptoms',
+  url: 'https://colitishelpusa.com/ulcerative-colitis-symptoms',
+};
+
+const relatedArticles = [
+  { href: '/ulcerative-colitis-flare-up', title: 'Understanding a UC flare-up' },
+  { href: '/blood-in-stool-ulcerative-colitis', title: 'Blood in stool with UC: what it means' },
+  { href: '/ulcerative-colitis-treatment-options', title: 'UC treatment options' },
+];
+---
+
+<BaseLayout
+  title="Ulcerative Colitis Symptoms: What They Are and When to Act"
+  description="Learn the most common ulcerative colitis symptoms — including bloody diarrhea, abdominal cramping, and fatigue — and when to contact your doctor."
+  canonical="/ulcerative-colitis-symptoms"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <EmergencyWarning />
+    <div class="prose-article">
+      <h1 style="color: #0B2545">Ulcerative colitis symptoms: what to look out for</h1>
+      <QuickAnswerBox>
+        The most common UC symptoms include bloody diarrhea, urgent bowel movements, abdominal cramping, fatigue, and weight loss. Symptoms range from mild to severe and can change over time. Severe symptoms should be evaluated by a doctor promptly.
+      </QuickAnswerBox>
+      <h2>Common UC symptoms</h2>
+      <p>UC symptoms vary by person and by the extent of inflammation in the colon. The most frequently reported symptoms include:</p>
+      <ul>
+        <li><strong>Bloody diarrhea or blood in stool</strong> — the most characteristic sign of UC</li>
+        <li><strong>Frequent, urgent need to use the bathroom</strong> — sometimes called urgency or tenesmus</li>
+        <li><strong>Abdominal cramping and pain</strong> — often relieved after bowel movements</li>
+        <li><strong>Fatigue and low energy</strong> — common due to inflammation and sometimes anemia</li>
+        <li><strong>Unintended weight loss</strong> — especially during flares</li>
+        <li><strong>Feeling that bowels never fully empty</strong></li>
+        <li><strong>Nighttime bowel movements</strong> — waking up at night to use the bathroom</li>
+      </ul>
+      <h2>Mild vs moderate vs severe UC</h2>
+      <p>Doctors often classify UC symptoms by severity to guide treatment decisions:</p>
+      <ul>
+        <li><strong>Mild:</strong> Fewer than 4 bowel movements per day, small amounts of blood, minimal cramping</li>
+        <li><strong>Moderate:</strong> 4–6 bowel movements per day, moderate bleeding, cramping that affects daily activities</li>
+        <li><strong>Severe:</strong> More than 6 bloody bowel movements per day, significant abdominal pain, fever, rapid heart rate, and possible anemia</li>
+      </ul>
+      <h2>Symptoms outside the colon</h2>
+      <p>UC can also cause symptoms in other parts of the body. These are called extraintestinal manifestations and may include joint pain or swelling, skin rashes, eye inflammation, and liver problems. These symptoms sometimes appear before or at the same time as bowel symptoms.</p>
+      <h2>When to contact a doctor</h2>
+      <p>Contact your healthcare provider if you notice blood in your stool, experience frequent diarrhea that does not resolve, have significant abdominal pain, or notice unexplained weight loss or ongoing fatigue. Don't wait for symptoms to become severe before seeking evaluation.</p>
+      <EmergencyWarning />
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options? Take our free 8-question check.</p>
+      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">Check My UC Care Options</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import EmergencyWarning from '../components/layout/EmergencyWarning';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Understanding a UC Flare-Up',
+  url: 'https://colitishelpusa.com/ulcerative-colitis-flare-up',
+};
+
+const relatedArticles = [
+  { href: '/ulcerative-colitis-symptoms', title: 'UC symptoms overview' },
+  { href: '/what-to-eat-during-uc-flare', title: 'What to eat during a UC flare' },
+  { href: '/ulcerative-colitis-treatment-options', title: 'UC treatment options' },
+];
+---
+
+<BaseLayout
+  title="UC Flare-Up: What It Is, Triggers, and What to Do"
+  description="A UC flare is when symptoms return or worsen. Learn common flare triggers, warning signs, and what questions to bring to your GI doctor."
+  canonical="/ulcerative-colitis-flare-up"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <EmergencyWarning />
+    <div class="prose-article">
+      <h1 style="color: #0B2545">Understanding a UC flare-up</h1>
+      <QuickAnswerBox>
+        A UC flare is when symptoms return or intensify after a period of remission. Flares can be mild or severe and may be triggered by stress, infections, diet, or medication changes. Recognizing early warning signs can help you act sooner.
+      </QuickAnswerBox>
+      <h2>What is a UC flare?</h2>
+      <p>A flare (also called a relapse) happens when your UC symptoms become active again after a period of remission — when symptoms were well-controlled or absent. Flares are a normal part of living with UC. Most people with UC experience them at some point, even with consistent treatment.</p>
+      <h2>What does a flare feel like?</h2>
+      <p>Flare symptoms often include:</p>
+      <ul>
+        <li>Increased frequency and urgency of bowel movements</li>
+        <li>Return or worsening of blood in stool</li>
+        <li>Cramping and abdominal pain that feels worse than usual</li>
+        <li>Fatigue that makes it hard to get through the day</li>
+        <li>Disrupted sleep due to nighttime bathroom trips</li>
+        <li>Loss of appetite or unintended weight loss</li>
+      </ul>
+      <h2>Common flare triggers</h2>
+      <p>While triggers vary by person, common ones include:</p>
+      <ul>
+        <li><strong>Stress:</strong> Physical or emotional stress can trigger or worsen inflammation</li>
+        <li><strong>Infections:</strong> Gastrointestinal infections (like food poisoning) can set off a flare</li>
+        <li><strong>Certain medications:</strong> NSAIDs (like ibuprofen) and antibiotics can trigger flares in some people</li>
+        <li><strong>Changes in medication:</strong> Missing doses or stopping medication too soon</li>
+        <li><strong>Certain foods:</strong> High-fiber foods, spicy foods, alcohol, or caffeine during sensitive periods</li>
+      </ul>
+      <h2>Early warning signs to watch for</h2>
+      <p>Some people notice early warning signs before a full flare develops. These can include a slight increase in bathroom frequency, mild urgency, or feeling more fatigued than usual. Tracking your symptoms in a diary can help you spot these patterns and contact your doctor early.</p>
+      <h2>When to contact a doctor</h2>
+      <p>Contact your GI doctor if you think you are entering a flare, especially if you have significant blood in stool, symptoms that are getting worse quickly, or signs that your current medication is not working. Early intervention can prevent a mild flare from becoming severe.</p>
+      <EmergencyWarning />
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Want guidance on your next steps during a flare?</p>
+      <CTAButton href="/free-uc-flare-guide" variant="primary" size="lg">Get the Free UC Flare Guide</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuizShell from '../components/quiz/QuizShell';
+---
+
+<BaseLayout
+  title="Free UC Care Options Check"
+  description="Answer 8 short questions about your UC symptoms, diagnosis, treatment, and insurance. Get free educational guidance on your next steps."
+  canonical="/uc-care-options-check"
+>
+  <div style="background-color: #FAFAF8" class="min-h-screen py-8">
+    <QuizShell client:load />
+  </div>
+</BaseLayout>

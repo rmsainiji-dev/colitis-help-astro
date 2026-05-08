@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What is IBD?', acceptedAnswer: { '@type': 'Answer', text: "IBD (inflammatory bowel disease) is a chronic condition involving inflammation of the digestive tract. The two main types are ulcerative colitis (UC) and Crohn's disease." } },
+    { '@type': 'Question', name: "What is the difference between UC and Crohn's?", acceptedAnswer: { '@type': 'Answer', text: "UC affects only the colon, while Crohn's can affect any part of the digestive tract. UC causes continuous inflammation from the rectum upward; Crohn's causes patchy inflammation." } },
+    { '@type': 'Question', name: 'What are the treatment options for UC?', acceptedAnswer: { '@type': 'Answer', text: 'UC treatment options range from aminosalicylates (mesalamine) for mild cases to biologics and JAK inhibitors for moderate-to-severe disease. Your GI doctor will recommend a plan based on your situation.' } },
+  ],
+};
+
+const ARTICLES = [
+  { href: '/ulcerative-colitis', title: 'Ulcerative colitis: a plain-English guide' },
+  { href: '/ulcerative-colitis-symptoms', title: 'UC symptoms: what to look out for' },
+  { href: '/ulcerative-colitis-flare-up', title: 'Understanding a UC flare-up' },
+  { href: '/blood-in-stool-ulcerative-colitis', title: 'Blood in stool with UC' },
+  { href: '/ulcerative-colitis-treatment-options', title: 'UC treatment options' },
+  { href: '/mesalamine-not-working-ulcerative-colitis', title: 'When mesalamine stops working' },
+  { href: '/prednisone-for-ulcerative-colitis', title: 'Prednisone for UC' },
+  { href: '/biologics-for-ulcerative-colitis', title: 'Biologics for UC' },
+  { href: '/jak-inhibitors-ulcerative-colitis', title: 'JAK inhibitors for UC' },
+  { href: '/ulcerative-colitis-diet', title: 'UC diet guide' },
+  { href: '/what-to-eat-during-uc-flare', title: 'What to eat during a UC flare' },
+  { href: '/ulcerative-colitis-insurance-coverage', title: 'Insurance coverage for UC' },
+  { href: '/ulcerative-colitis-clinical-trials-usa', title: 'UC clinical trials in the USA' },
+  { href: '/crohns-vs-ulcerative-colitis', title: "Crohn's vs ulcerative colitis" },
+  { href: '/ibd-vs-ibs', title: 'IBD vs IBS' },
+];
+---
+
+<BaseLayout
+  title="IBD Patient Guide: All UC Questions and Answers"
+  description="A complete educational guide to inflammatory bowel disease (IBD) and ulcerative colitis — symptoms, treatments, diet, insurance, and more."
+  canonical="/ibd-guide"
+  schema={faqSchema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <h1 class="text-3xl font-bold mb-4" style="color: #0B2545">IBD patient guide: all UC articles and answers</h1>
+    <p class="text-base mb-8 leading-relaxed" style="color: #5C5C56">
+      Educational information about ulcerative colitis, IBD, treatment options, diet, insurance, and clinical trials. All content is for educational purposes only. Always consult a licensed healthcare professional for advice about your condition.
+    </p>
+    <div class="grid gap-3">
+      {ARTICLES.map((a) => (
+        <a
+          href={a.href}
+          class="flex items-center gap-3 p-4 rounded-xl border transition-all hover:opacity-80"
+          style="border-color: #E8E8E4; background-color: white"
+        >
+          <span style="color: #0E6B8E">→</span>
+          <span class="text-sm font-medium" style="color: #0B2545">{a.title}</span>
+        </a>
+      ))}
+    </div>
+    <div class="mt-10 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options? Take our free 8-question check.</p>
+      <a
+        href="/uc-care-options-check"
+        class="inline-block px-6 py-3 rounded-lg font-semibold text-sm text-white"
+        style="background-color: #C8902A"
+      >
+        Check My UC Care Options
+      </a>
+    </div>
+  </main>
+</BaseLayout>

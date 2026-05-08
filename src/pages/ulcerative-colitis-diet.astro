@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Ulcerative Colitis Diet',
+  url: 'https://colitishelpusa.com/ulcerative-colitis-diet',
+};
+
+const relatedArticles = [
+  { href: '/what-to-eat-during-uc-flare', title: 'What to eat during a UC flare' },
+  { href: '/ulcerative-colitis-flare-up', title: 'Understanding UC flares' },
+  { href: '/uc-symptom-tracker', title: 'Free UC symptom tracker' },
+];
+---
+
+<BaseLayout
+  title="Ulcerative Colitis Diet: What to Eat and What to Avoid"
+  description="There is no single UC diet, but certain foods can trigger symptoms. Learn about eating with UC, flare foods, and how to track your triggers."
+  canonical="/ulcerative-colitis-diet"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">Eating with ulcerative colitis: a practical guide</h1>
+      <QuickAnswerBox>
+        There is no single diet that works for all people with UC. Diet does not cause or cure UC, but certain foods can trigger symptoms — especially during a flare. Keeping a food diary helps you identify your personal triggers.
+      </QuickAnswerBox>
+      <h2>Does diet cause UC?</h2>
+      <p>No. Ulcerative colitis is caused by an abnormal immune response, not by diet. However, what you eat can influence how your symptoms feel day to day, particularly during a flare. Diet is a tool to help manage symptoms, not a replacement for medical treatment.</p>
+      <h2>Foods that commonly trigger symptoms during a flare</h2>
+      <p>These foods cause problems for many (but not all) people with UC during active flares:</p>
+      <ul>
+        <li>High-fiber raw vegetables (like broccoli, cabbage, and raw onion)</li>
+        <li>Whole grains and nuts</li>
+        <li>Dairy products (especially if lactose intolerant)</li>
+        <li>Spicy foods</li>
+        <li>Caffeine and coffee</li>
+        <li>Alcohol</li>
+        <li>Carbonated drinks</li>
+        <li>High-fat or fried foods</li>
+      </ul>
+      <h2>Foods that tend to be easier to tolerate</h2>
+      <ul>
+        <li>White rice and refined grains</li>
+        <li>Boiled or steamed fish and chicken</li>
+        <li>Cooked vegetables (peeled, soft)</li>
+        <li>Bananas and other low-fiber fruits</li>
+        <li>Applesauce</li>
+        <li>Eggs (usually well-tolerated)</li>
+        <li>Broth-based soups</li>
+      </ul>
+      <h2>Eating during remission</h2>
+      <p>When your UC is in remission, you may be able to tolerate a much wider range of foods. Many people eat a fairly normal diet during remission. The goal is not to permanently restrict foods, but to eat in a way that supports your overall health.</p>
+      <h2>The value of a food and symptom diary</h2>
+      <p>Because UC triggers vary so much from person to person, keeping a diary of what you eat and how you feel afterward is one of the most useful things you can do. Over time, patterns emerge that can help you and your healthcare team make better-informed decisions.</p>
+      <h2>Working with a dietitian</h2>
+      <p>If you are struggling with eating and UC, consider asking your GI doctor for a referral to a registered dietitian who works with IBD patients. They can help you build an eating plan that supports your health without unnecessary restriction.</p>
+      <h2>When to contact a doctor</h2>
+      <p>If you are losing significant weight, have difficulty eating, or are concerned about nutritional deficiencies, talk to your healthcare provider. Do not make major dietary changes without professional guidance if you are actively in a flare.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Get the Free UC Flare Guide (includes diet tips).</p>
+      <CTAButton href="/free-uc-flare-guide" variant="primary" size="lg">Get the Free UC Flare Guide</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

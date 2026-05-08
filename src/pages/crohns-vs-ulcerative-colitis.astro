@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: "What is the difference between Crohn's disease and ulcerative colitis?",
+      acceptedAnswer: { '@type': 'Answer', text: "UC affects only the colon, while Crohn's can affect any part of the digestive tract. UC causes continuous inflammation starting from the rectum, while Crohn's causes patchy inflammation that can skip sections." },
+    },
+    {
+      '@type': 'Question',
+      name: "Can Crohn's become UC or vice versa?",
+      acceptedAnswer: { '@type': 'Answer', text: "These are separate conditions and one does not turn into the other. Occasionally, a patient initially diagnosed with one may be reclassified as IBD is better understood through testing." },
+    },
+  ],
+};
+
+const relatedArticles = [
+  { href: '/ibd-vs-ibs', title: 'IBD vs IBS: understanding the difference' },
+  { href: '/ulcerative-colitis', title: 'Ulcerative colitis overview' },
+  { href: '/ulcerative-colitis-symptoms', title: 'UC symptoms' },
+];
+---
+
+<BaseLayout
+  title="Crohn's Disease vs Ulcerative Colitis: Key Differences"
+  description="Crohn's and UC are both forms of IBD but affect the digestive tract differently. Learn the key differences and what they mean for diagnosis and treatment."
+  canonical="/crohns-vs-ulcerative-colitis"
+  schema={faqSchema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">Crohn's disease vs ulcerative colitis: what is the difference?</h1>
+      <QuickAnswerBox>
+        Both Crohn's and UC are forms of inflammatory bowel disease (IBD), but they differ in where inflammation occurs and how it behaves. UC affects only the colon, while Crohn's can affect any part of the digestive tract. Treatment approaches can also differ.
+      </QuickAnswerBox>
+      <h2>What they have in common</h2>
+      <p>Both Crohn's disease and ulcerative colitis are chronic inflammatory bowel diseases caused by an abnormal immune response. Both involve periods of active symptoms (flares) and remission. Both can cause diarrhea, abdominal pain, fatigue, and weight loss. Both are managed with medication, and neither has a known cure.</p>
+      <h2>Key differences</h2>
+      <table style="border-collapse: collapse; width: 100%; margin-bottom: 1.5rem">
+        <thead>
+          <tr style="background-color: #E4F5F7">
+            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #E8E8E4; color: #0B2545">Feature</th>
+            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #E8E8E4; color: #0B2545">Ulcerative Colitis</th>
+            <th style="padding: 12px; text-align: left; border-bottom: 1px solid #E8E8E4; color: #0B2545">Crohn's Disease</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #E8E8E4">
+            <td style="padding: 10px 12px; font-weight: 600; color: #0B2545">Where it occurs</td>
+            <td style="padding: 10px 12px; color: #5C5C56">Colon and rectum only</td>
+            <td style="padding: 10px 12px; color: #5C5C56">Any part of digestive tract</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E8E8E4">
+            <td style="padding: 10px 12px; font-weight: 600; color: #0B2545">How it spreads</td>
+            <td style="padding: 10px 12px; color: #5C5C56">Continuous from rectum upward</td>
+            <td style="padding: 10px 12px; color: #5C5C56">Patchy, can skip sections</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E8E8E4">
+            <td style="padding: 10px 12px; font-weight: 600; color: #0B2545">Depth of inflammation</td>
+            <td style="padding: 10px 12px; color: #5C5C56">Inner lining of colon only</td>
+            <td style="padding: 10px 12px; color: #5C5C56">Can affect all layers of bowel wall</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E8E8E4">
+            <td style="padding: 10px 12px; font-weight: 600; color: #0B2545">Blood in stool</td>
+            <td style="padding: 10px 12px; color: #5C5C56">Very common</td>
+            <td style="padding: 10px 12px; color: #5C5C56">Less common</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E8E8E4">
+            <td style="padding: 10px 12px; font-weight: 600; color: #0B2545">Surgery outcome</td>
+            <td style="padding: 10px 12px; color: #5C5C56">Colectomy can resolve UC</td>
+            <td style="padding: 10px 12px; color: #5C5C56">Surgery does not cure Crohn's</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Does the distinction matter for treatment?</h2>
+      <p>Yes. While some treatments overlap (many biologics are used for both conditions), the diagnosis affects which medications are approved and what treatment approach your GI doctor will take. Surgery can effectively treat UC in some cases, while Crohn's typically recurs even after surgery.</p>
+      <h2>What if the diagnosis is unclear?</h2>
+      <p>In some cases, IBD cannot be definitively classified as either Crohn's or UC based on available information. This is sometimes called indeterminate colitis or IBD-U. With more testing over time, the diagnosis often becomes clearer.</p>
+      <h2>When to contact a doctor</h2>
+      <p>If you have IBD symptoms but are unsure of your diagnosis, or if you have been diagnosed but feel your condition is not well-controlled, talk to a gastroenterologist. Getting an accurate diagnosis is the foundation of effective treatment.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options?</p>
+      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">Check My UC Care Options</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadMagnetForm from '../components/forms/LeadMagnetForm';
+---
+
+<BaseLayout
+  title="Free Printable: UC Food and Symptom Tracker"
+  description="Track what you eat, your daily symptoms, bathroom frequency, and energy levels. Use the patterns to guide conversations with your GI doctor."
+  canonical="/uc-symptom-tracker"
+>
+  <div style="background-color: #FAFAF8" class="min-h-screen">
+    <div class="max-w-[600px] mx-auto px-6 py-12">
+      <a href="/" class="text-sm mb-6 inline-block" style="color: #0E6B8E">← Back to ColitisHelpUSA.com</a>
+      <h1 class="text-3xl font-bold mb-3" style="color: #0B2545">Free Printable: UC Food and Symptom Tracker</h1>
+      <p class="text-base mb-6 leading-relaxed" style="color: #5C5C56">Track what you eat, your daily symptoms, bathroom frequency, and energy levels. Use the patterns to guide conversations with your GI doctor at your next visit.</p>
+      <ul class="space-y-2 mb-8">
+        {[
+          'Daily food and drink log',
+          'Symptom severity tracking',
+          'Bathroom frequency log',
+          'Energy and mood notes',
+          'Space for medication reminders',
+        ].map((item) => (
+          <li class="flex items-center gap-2 text-sm" style="color: #0B2545">
+            <span style="color: #1B7A4E">✓</span>
+            {item}
+          </li>
+        ))}
+      </ul>
+      <div class="p-6 rounded-xl mb-6" style="background-color: white; border: 1px solid #E8E8E4">
+        <LeadMagnetForm
+          source="UC Symptom Tracker"
+          buttonText="Get the Free Symptom Tracker"
+          showName={false}
+          thankYouMessage="Your symptom tracker is ready to print or use digitally. Share your patterns with your healthcare provider at your next visit."
+          client:load
+        />
+      </div>
+      <p class="text-xs" style="color: #9C9C96">For educational purposes only. Not medical advice.</p>
+    </div>
+  </div>
+</BaseLayout>

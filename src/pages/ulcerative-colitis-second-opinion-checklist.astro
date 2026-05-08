@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'UC Second Opinion Checklist',
+  url: 'https://colitishelpusa.com/ulcerative-colitis-second-opinion-checklist',
+};
+
+const relatedArticles = [
+  { href: '/ulcerative-colitis-treatment-options', title: 'UC treatment options' },
+  { href: '/biologics-for-ulcerative-colitis', title: 'Biologics for UC' },
+  { href: '/gi-doctor-questions', title: '25 questions to ask your GI doctor' },
+];
+---
+
+<BaseLayout
+  title="Getting a Second Opinion for UC: A Checklist for Patients"
+  description="Thinking about getting a second opinion for your UC diagnosis or treatment plan? Here is a checklist of questions and steps to guide you."
+  canonical="/ulcerative-colitis-second-opinion-checklist"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">UC second opinion checklist: questions to consider</h1>
+      <QuickAnswerBox>
+        Getting a second opinion on your UC diagnosis or treatment plan is a reasonable and common step. It can be especially valuable if your current treatment is not working, you are facing a major treatment change, or you want more information before making a decision.
+      </QuickAnswerBox>
+      <h2>When should you consider a second opinion?</h2>
+      <ul>
+        <li>Your diagnosis is not clear or feels uncertain</li>
+        <li>Your current treatment is not controlling symptoms</li>
+        <li>You are being advised to start a biologic or make a major medication change</li>
+        <li>Surgery has been recommended</li>
+        <li>You want to understand all available options before deciding</li>
+        <li>You simply want peace of mind from another expert</li>
+      </ul>
+      <h2>What to bring to a second opinion appointment</h2>
+      <ul>
+        <li>Your current diagnosis in writing</li>
+        <li>A list of all medications you have tried and your responses to them</li>
+        <li>Records of recent colonoscopies or procedures (request copies)</li>
+        <li>Lab results (blood tests, stool tests) from the past 6–12 months</li>
+        <li>A summary of your symptom history</li>
+        <li>A list of questions you want answered</li>
+      </ul>
+      <h2>Questions to ask at a second opinion</h2>
+      <ul>
+        <li>Do you agree with my current diagnosis?</li>
+        <li>Is my current treatment approach appropriate for my disease activity?</li>
+        <li>Are there other treatment options I should know about?</li>
+        <li>Are there clinical trials I might be eligible for?</li>
+        <li>What would you recommend differently, if anything?</li>
+      </ul>
+      <h2>Will my current doctor be upset?</h2>
+      <p>Most gastroenterologists understand and support the right to seek a second opinion. It is a normal part of navigating a chronic condition. You do not need to hide it from your current doctor — in fact, sharing the second opinion findings can help them provide better care.</p>
+      <h2>When to contact a doctor</h2>
+      <p>If your symptoms are getting worse while you are arranging a second opinion, contact your current doctor. Do not delay evaluation of worsening symptoms while waiting for an appointment with a different provider.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Get the Free GI Doctor Question Checklist.</p>
+      <CTAButton href="/gi-doctor-questions" variant="primary" size="lg">Get the Free GI Doctor Question Checklist</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

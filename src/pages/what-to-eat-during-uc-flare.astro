@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'What to Eat During a UC Flare',
+  url: 'https://colitishelpusa.com/what-to-eat-during-uc-flare',
+};
+
+const relatedArticles = [
+  { href: '/ulcerative-colitis-diet', title: 'UC diet: full guide' },
+  { href: '/ulcerative-colitis-flare-up', title: 'Understanding UC flares' },
+  { href: '/uc-symptom-tracker', title: 'Free UC symptom and food tracker' },
+];
+---
+
+<BaseLayout
+  title="What to Eat During a UC Flare: Foods That May Help and Hurt"
+  description="During a UC flare, certain foods are easier to tolerate than others. Get plain-English guidance on eating during a flare."
+  canonical="/what-to-eat-during-uc-flare"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">What to eat during a UC flare</h1>
+      <QuickAnswerBox>
+        During a UC flare, eating low-fiber, easily digestible foods is generally easier on the gut. This includes white rice, soft cooked vegetables, lean proteins, and bananas. Avoid raw vegetables, high-fiber foods, dairy, spicy foods, and alcohol during a flare.
+      </QuickAnswerBox>
+      <h2>Why diet matters during a flare</h2>
+      <p>During an active UC flare, the lining of your colon is inflamed and irritated. Certain foods pass through more easily and are less likely to aggravate symptoms. The goal during a flare is not a permanent diet — it is a temporary approach to help your gut rest while medical treatment does its work.</p>
+      <h2>Foods that may help during a flare</h2>
+      <ul>
+        <li><strong>White rice or plain pasta</strong> — low fiber, easy to digest</li>
+        <li><strong>Boiled or baked chicken or fish</strong> — lean protein without added fat</li>
+        <li><strong>Soft cooked carrots, zucchini, or squash</strong> — peeled and well-cooked</li>
+        <li><strong>Bananas</strong> — low fiber, gentle on the digestive system</li>
+        <li><strong>Applesauce (no added sugar)</strong></li>
+        <li><strong>White toast or crackers</strong></li>
+        <li><strong>Eggs</strong> — well-tolerated by most people</li>
+        <li><strong>Broth or soup</strong> — helps with hydration</li>
+        <li><strong>Oatmeal (plain)</strong> — soluble fiber is generally better tolerated than insoluble</li>
+      </ul>
+      <h2>Foods to avoid during a flare</h2>
+      <ul>
+        <li>Raw vegetables and salads</li>
+        <li>Whole grains, bran, and high-fiber foods</li>
+        <li>Nuts, seeds, and popcorn</li>
+        <li>Dairy products (if you are sensitive to lactose)</li>
+        <li>Spicy foods and hot sauces</li>
+        <li>Alcohol</li>
+        <li>Caffeine and coffee</li>
+        <li>Carbonated drinks</li>
+        <li>Fried or fatty foods</li>
+      </ul>
+      <h2>Staying hydrated during a flare</h2>
+      <p>Frequent diarrhea can cause dehydration. Drink plenty of water throughout the day. Electrolyte drinks (without artificial sweeteners) or oral rehydration solutions can also help, especially if you are losing a lot of fluid.</p>
+      <h2>When to contact a doctor</h2>
+      <p>Dietary changes are a supporting measure — they do not treat UC on their own. If your flare is getting worse, you cannot keep food or fluids down, you are losing significant weight, or you have significant blood in your stool, contact your doctor promptly.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Get the complete UC Flare Survival Guide.</p>
+      <CTAButton href="/free-uc-flare-guide" variant="primary" size="lg">Get the Free UC Flare Survival Guide</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

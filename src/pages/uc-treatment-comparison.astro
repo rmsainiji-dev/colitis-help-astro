@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadMagnetForm from '../components/forms/LeadMagnetForm';
+---
+
+<BaseLayout
+  title="Free Comparison Guide: UC Treatments Side by Side"
+  description="From mesalamine to biologics — understand how different UC medications work and what to ask before switching or starting a new treatment."
+  canonical="/uc-treatment-comparison"
+>
+  <div style="background-color: #FAFAF8" class="min-h-screen">
+    <div class="max-w-[600px] mx-auto px-6 py-12">
+      <a href="/" class="text-sm mb-6 inline-block" style="color: #0E6B8E">← Back to ColitisHelpUSA.com</a>
+      <h1 class="text-3xl font-bold mb-3" style="color: #0B2545">Free Comparison Guide: UC Treatments Side by Side</h1>
+      <p class="text-base mb-6 leading-relaxed" style="color: #5C5C56">From mesalamine to biologics — understand how different UC medications work and what to ask before switching or starting a new treatment.</p>
+      <div class="p-6 rounded-xl mb-6" style="background-color: white; border: 1px solid #E8E8E4">
+        <LeadMagnetForm
+          source="UC Treatment Comparison Guide"
+          buttonText="Compare UC Treatment Options"
+          thankYouMessage="Your UC treatment comparison is on its way. Use it to guide conversations with your healthcare provider."
+          client:load
+        />
+      </div>
+      <p class="text-xs" style="color: #9C9C96">For educational purposes only. Not medical advice.</p>
+    </div>
+  </div>
+</BaseLayout>

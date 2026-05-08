@@ -1,0 +1,109 @@
+'use client';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import ConsentCheckbox from './ConsentCheckbox';
+
+const schema = z.object({
+  email: z.string().email('Valid email required'),
+  name: z.string().optional(),
+  consent: z.boolean().refine((v) => v === true, 'You must agree to continue'),
+});
+
+type FormData = z.infer<typeof schema>;
+
+interface LeadMagnetFormProps {
+  source: string;
+  buttonText?: string;
+  showName?: boolean;
+  extraFields?: React.ReactNode;
+  thankYouMessage?: string;
+}
+
+export default function LeadMagnetForm({
+  source,
+  buttonText = 'Send Me the Free Guide',
+  showName = true,
+  extraFields,
+  thankYouMessage,
+}: LeadMagnetFormProps) {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: { consent: false },
+  });
+
+  const onSubmit = async (data: FormData) => {
+    setLoading(true);
+    try {
+      await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: data.email, name: data.name, source }),
+      });
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div className="p-5 rounded-xl" style={{ backgroundColor: '#E8F5F0', border: '1px solid #1B7A4E' }}>
+        <p className="font-semibold" style={{ color: '#1B7A4E' }}>
+          ✓ {thankYouMessage || 'Your guide is on its way to your inbox!'}
+        </p>
+        <p className="text-sm mt-2" style={{ color: '#5C5C56' }}>
+          This resource is for educational purposes only and is not a substitute for advice from a licensed healthcare professional.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-md">
+      {showName && (
+        <input
+          {...register('name')}
+          type="text"
+          placeholder="First name (optional)"
+          className="w-full px-4 py-3 rounded-lg text-sm border focus:outline-none"
+          style={{ borderColor: '#E8E8E4', color: '#2A2A26', backgroundColor: 'white' }}
+        />
+      )}
+      <div>
+        <input
+          {...register('email')}
+          type="email"
+          placeholder="Email address"
+          className="w-full px-4 py-3 rounded-lg text-sm border focus:outline-none"
+          style={{ borderColor: errors.email ? '#C0392B' : '#E8E8E4', color: '#2A2A26', backgroundColor: 'white' }}
+        />
+        {errors.email && (
+          <p className="text-xs mt-1" style={{ color: '#C0392B' }}>
+            {errors.email.message}
+          </p>
+        )}
+      </div>
+      {extraFields}
+      <ConsentCheckbox register={register} name="consent" error={errors.consent?.message} />
+      <p className="text-xs" style={{ color: 'rgba(0,0,0,0.4)' }}>
+        By submitting, you agree that Colitis Help USA may contact you and may share your information with selected care-navigation or healthcare partners. Consent not required to use this site.
+      </p>
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full px-6 py-3 rounded-lg font-semibold text-sm text-white disabled:opacity-60"
+        style={{ backgroundColor: '#C8902A' }}
+      >
+        {loading ? 'Sending...' : buttonText}
+      </button>
+    </form>
+  );
+}

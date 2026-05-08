@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Ulcerative Colitis Treatment Options',
+  url: 'https://colitishelpusa.com/ulcerative-colitis-treatment-options',
+};
+
+const relatedArticles = [
+  { href: '/mesalamine-not-working-ulcerative-colitis', title: 'What to do when mesalamine stops working' },
+  { href: '/biologics-for-ulcerative-colitis', title: 'Biologics for UC: a plain-English guide' },
+  { href: '/jak-inhibitors-ulcerative-colitis', title: 'JAK inhibitors for UC' },
+];
+---
+
+<BaseLayout
+  title="Ulcerative Colitis Treatment Options: From Mesalamine to Biologics"
+  description="Explore the main UC treatment categories — aminosalicylates, steroids, biologics, and JAK inhibitors — and what questions to ask your GI doctor about each."
+  canonical="/ulcerative-colitis-treatment-options"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">UC treatment options: what your GI doctor may discuss</h1>
+      <QuickAnswerBox>
+        UC treatment ranges from aminosalicylates (like mesalamine) for mild cases to biologics and JAK inhibitors for moderate-to-severe disease. Your GI doctor will recommend a treatment plan based on your symptom severity, where inflammation is, and how you've responded to previous treatment.
+      </QuickAnswerBox>
+      <p style="color: #5C5C56">Information about treatment options is educational. Speak with your licensed healthcare provider before making any treatment decisions.</p>
+      <h2>Aminosalicylates (5-ASA / mesalamine)</h2>
+      <p>These are often the first medications tried for mild to moderate UC. They work directly on the lining of the colon to reduce inflammation. Common examples include mesalamine, sulfasalazine, and balsalazide. They can be taken orally or as suppositories/enemas depending on where the inflammation is located.</p>
+      <h2>Corticosteroids (prednisone)</h2>
+      <p>Steroids like prednisone are used to quickly bring an active flare under control. They are generally not meant for long-term use due to potential side effects. Your doctor may prescribe them during a flare and then taper the dose as symptoms improve.</p>
+      <h2>Immunosuppressants</h2>
+      <p>Medications like azathioprine and 6-mercaptopurine reduce immune system activity to limit inflammation. They take several weeks to months to reach full effectiveness and are often used alongside other treatments.</p>
+      <h2>Biologics</h2>
+      <p>Biologics are injectable or infused medications that target specific proteins in the immune system involved in inflammation. They are typically used for moderate to severe UC that has not responded to other treatments. Examples include TNF inhibitors (like adalimumab and infliximab) and integrin inhibitors.</p>
+      <p><a href="/biologics-for-ulcerative-colitis" style="color: #0E6B8E">Learn more about biologics for UC →</a></p>
+      <h2>JAK inhibitors</h2>
+      <p>JAK inhibitors are a newer class of oral medications for moderate to severe UC. They work by blocking specific signaling pathways inside cells that contribute to inflammation. Examples include tofacitinib and upadacitinib.</p>
+      <p><a href="/jak-inhibitors-ulcerative-colitis" style="color: #0E6B8E">Learn more about JAK inhibitors for UC →</a></p>
+      <h2>Surgery</h2>
+      <p>In some cases — particularly severe UC that does not respond to medications — surgery may be considered. The most common procedure is removal of the colon (colectomy). This can resolve UC but involves significant lifestyle adjustments.</p>
+      <h2>When to contact a doctor</h2>
+      <p>If your current treatment is not controlling your symptoms, or if you are experiencing significant side effects, talk to your GI doctor. There are often additional options available. Do not stop or change your medication without guidance from your healthcare provider.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Compare UC treatment options side by side.</p>
+      <CTAButton href="/uc-treatment-comparison" variant="primary" size="lg">Compare UC Treatment Options</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

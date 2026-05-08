@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../../components/ui/QuickAnswerBox';
+import EmergencyWarning from '../../components/layout/EmergencyWarning';
+import GIQuestionsCard from '../../components/ui/GIQuestionsCard';
+import RelatedArticles from '../../components/ui/RelatedArticles';
+import CTAButton from '../../components/ui/CTAButton';
+import { US_STATES, stateNameFromSlug } from '../../lib/stateList';
+
+export function getStaticPaths() {
+  return US_STATES.map((s) => ({
+    params: { state: s.name.toLowerCase().replace(/\s+/g, '-') },
+    props: { stateName: s.name, stateAbbr: s.abbr },
+  }));
+}
+
+const { state } = Astro.params;
+const { stateName, stateAbbr } = Astro.props;
+
+function getClinicalTrialsUrl(abbr: string) {
+  return `https://clinicaltrials.gov/search?cond=Ulcerative+Colitis&locStr=${encodeURIComponent(abbr)}&distance=50`;
+}
+
+const trialsUrl = getClinicalTrialsUrl(stateAbbr);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: `Ulcerative Colitis Help in ${stateName}`,
+  url: `https://colitishelpusa.com/ulcerative-colitis-help/${state}`,
+  about: { '@type': 'MedicalCondition', name: 'Ulcerative Colitis' },
+  description: `Educational UC resources for patients in ${stateName}.`,
+};
+
+const relatedArticles = [
+  { href: '/ulcerative-colitis-treatment-options', title: 'UC treatment options explained' },
+  { href: '/ulcerative-colitis-insurance-coverage', title: 'Insurance coverage for UC treatment' },
+  { href: '/ulcerative-colitis-clinical-trials-usa', title: 'Clinical trials for ulcerative colitis' },
+  { href: '/uc-care-options-check', title: 'Take the free UC care options check' },
+];
+---
+
+<BaseLayout
+  title={`Ulcerative Colitis Help in ${stateName} | ColitisHelpUSA.com`}
+  description={`Educational resources for people with ulcerative colitis in ${stateName}. Learn about UC treatment options, insurance navigation, and care resources available to patients.`}
+  canonical={`/ulcerative-colitis-help/${state}`}
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <EmergencyWarning />
+    <div class="prose-article">
+      <h1 style="color: #0B2545">Ulcerative colitis resources for patients in {stateName}</h1>
+      <QuickAnswerBox>
+        This page provides educational resources for people managing ulcerative colitis (UC) in {stateName}. It covers treatment options, insurance guidance, clinical trials, and how to find a GI specialist. This is not medical advice — always consult a licensed healthcare provider.
+      </QuickAnswerBox>
+      <h2>Understanding UC: what every patient in {stateName} should know</h2>
+      <p>Ulcerative colitis is a chronic inflammatory bowel disease (IBD) that causes inflammation and ulcers in the lining of the colon and rectum. It affects an estimated 600,000–900,000 Americans, and patients in {stateName} have access to a range of treatment and care options.</p>
+      <p>UC typically follows a pattern of flares (active symptoms) and remission (minimal or no symptoms). Proper treatment — guided by a gastroenterologist — can help most people achieve and maintain remission.</p>
+      <h2>Treatment options for UC patients</h2>
+      <p>There is no one-size-fits-all approach to UC treatment. Your gastroenterologist will recommend a plan based on the extent and severity of your disease, your treatment history, and your overall health. Common treatment categories include:</p>
+      <ul>
+        <li><strong>Aminosalicylates (5-ASAs):</strong> First-line medications for mild-to-moderate UC, such as mesalamine, often given as oral tablets or rectal suppositories/enemas.</li>
+        <li><strong>Corticosteroids:</strong> Prednisone and budesonide are used for short-term flare control. Long-term use is generally avoided due to side effects.</li>
+        <li><strong>Immunomodulators:</strong> Azathioprine and 6-mercaptopurine help maintain remission but take weeks to months to reach full effect.</li>
+        <li><strong>Biologics:</strong> Injectable or infused medications that target specific inflammatory pathways — including TNF inhibitors (infliximab, adalimumab), integrin inhibitors (vedolizumab), and IL-12/23 inhibitors (ustekinumab).</li>
+        <li><strong>JAK inhibitors:</strong> Oral small-molecule medications (tofacitinib, upadacitinib) for moderate-to-severe UC.</li>
+        <li><strong>Surgery:</strong> In severe or treatment-resistant cases, surgical removal of the colon (colectomy) can be curative.</li>
+      </ul>
+      <h2>Finding a GI specialist in {stateName}</h2>
+      <p>A gastroenterologist who specializes in inflammatory bowel disease is the best resource for UC patients. To find a GI specialist in {stateName}, you can use:</p>
+      <ul>
+        <li>Your insurance company's provider directory (search for "gastroenterologist" or "IBD specialist")</li>
+        <li>The <a href="https://www.crohnscolitisfoundation.org/find-a-healthcare-provider" target="_blank" rel="noopener noreferrer" style="color: #0E6B8E">Crohn's &amp; Colitis Foundation provider directory</a></li>
+        <li>Your primary care provider for a referral</li>
+        <li>Academic medical centers in {stateName} that often have dedicated IBD clinics</li>
+      </ul>
+      <p style="font-size: 0.875rem; color: #5C5C56"><em>Colitis Help USA does not verify, endorse, or recommend any specific doctor, clinic, or healthcare facility in {stateName} or elsewhere.</em></p>
+      <h2>Insurance and financial assistance in {stateName}</h2>
+      <p>The cost of biologic medications and ongoing GI care can be significant. Patients in {stateName} may have access to:</p>
+      <ul>
+        <li><strong>Manufacturer copay assistance programs:</strong> Most biologic manufacturers offer copay cards or patient assistance programs for commercially insured patients. Ask your GI about these.</li>
+        <li><strong>Medicaid in {stateName}:</strong> If you meet income eligibility requirements, {stateName} Medicaid may cover UC medications and GI visits. Eligibility rules vary by state.</li>
+        <li><strong>ACA marketplace plans:</strong> UC is a pre-existing condition that cannot be used to deny coverage or charge higher premiums under the Affordable Care Act.</li>
+        <li><strong>Non-profit assistance:</strong> Organizations like the <a href="https://www.crohnscolitisfoundation.org" target="_blank" rel="noopener noreferrer" style="color: #0E6B8E">Crohn's &amp; Colitis Foundation</a> and <a href="https://www.needymeds.org" target="_blank" rel="noopener noreferrer" style="color: #0E6B8E">NeedyMeds</a> can help patients find financial support.</li>
+      </ul>
+      <h2>Clinical trials for UC patients in {stateName}</h2>
+      <p>Clinical trials test new treatments for UC and can give eligible patients access to investigational therapies at no cost. Participating in a trial can also contribute to research that may benefit future patients.</p>
+      <p>To search for trials currently enrolling patients in {stateName}, visit the <a href={trialsUrl} target="_blank" rel="noopener noreferrer" style="color: #0E6B8E">ClinicalTrials.gov search for UC trials near you</a>. Discuss any trial with your gastroenterologist before enrolling.</p>
+      <p style="font-size: 0.875rem; color: #5C5C56"><em>Trial availability changes frequently. Always verify current enrollment status directly with the trial site.</em></p>
+      <h2>Questions to ask your GI doctor</h2>
+      <p>If you have a GI appointment coming up, consider asking:</p>
+      <ul>
+        <li>Is my current treatment getting my UC into remission — and if not, what are my next options?</li>
+        <li>Would I be a candidate for a biologic or JAK inhibitor?</li>
+        <li>Are there any clinical trials I should know about?</li>
+        <li>How can I access copay assistance for my medications?</li>
+        <li>What are the signs of a serious flare that would require urgent care?</li>
+      </ul>
+      <h2>About this page</h2>
+      <p style="font-size: 0.875rem; color: #5C5C56">This page is provided for educational purposes only. Colitis Help USA is not a medical provider, does not operate any clinics in {stateName}, and does not endorse any specific doctor, hospital, or health system. All information on this page is general in nature and should not replace personalized guidance from a licensed healthcare professional.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options?</p>
+      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">Take the Free UC Care Options Check</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

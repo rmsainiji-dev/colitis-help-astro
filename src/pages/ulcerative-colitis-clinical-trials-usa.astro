@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'UC Clinical Trials in the USA',
+  url: 'https://colitishelpusa.com/ulcerative-colitis-clinical-trials-usa',
+};
+
+const relatedArticles = [
+  { href: '/ulcerative-colitis-treatment-options', title: 'UC treatment options' },
+  { href: '/biologics-for-ulcerative-colitis', title: 'Biologics for UC' },
+  { href: '/ulcerative-colitis-insurance-coverage', title: 'Insurance and cost navigation' },
+];
+---
+
+<BaseLayout
+  title="UC Clinical Trials in the USA: What They Are and How to Find Them"
+  description="Clinical trials study new treatments for UC and sometimes offer access to options not yet widely available. Learn how to find trials and what to ask."
+  canonical="/ulcerative-colitis-clinical-trials-usa"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">UC clinical trials in the USA: a patient guide</h1>
+      <QuickAnswerBox>
+        Clinical trials study new UC treatments and may give eligible patients access to options not yet widely available. Eligibility depends on your diagnosis, disease activity, location, and treatment history. You can search for active trials at ClinicalTrials.gov.
+      </QuickAnswerBox>
+      <h2>What is a clinical trial?</h2>
+      <p>A clinical trial is a research study that tests new medications, biologics, or treatment approaches in human volunteers. In UC, clinical trials often study new drugs before they receive FDA approval, or study new uses or combinations of existing treatments.</p>
+      <h2>Why might someone with UC consider a trial?</h2>
+      <p>Reasons people consider UC clinical trials include:</p>
+      <ul>
+        <li>Current treatments have not worked or have stopped working</li>
+        <li>Wanting access to newer therapies not yet widely available</li>
+        <li>Receiving close monitoring and care as part of a study</li>
+        <li>Potential for reduced or no medication costs (trials often provide study drugs at no cost)</li>
+        <li>Contributing to UC research that may help others in the future</li>
+      </ul>
+      <h2>What to understand before joining a trial</h2>
+      <p>Clinical trials are not the right choice for everyone. Key things to understand:</p>
+      <ul>
+        <li>You may receive a placebo (inactive treatment) in some trials — ask about this</li>
+        <li>There are inclusion and exclusion criteria you must meet to be eligible</li>
+        <li>You have the right to withdraw at any time without affecting your regular care</li>
+        <li>Your regular GI doctor should be informed if you join a trial</li>
+      </ul>
+      <h2>How to find UC clinical trials in the USA</h2>
+      <p>The official registry of clinical trials in the United States is <a href="https://clinicaltrials.gov" target="_blank" rel="noopener noreferrer" style="color: #0E6B8E; text-decoration: underline">ClinicalTrials.gov</a>. You can search for active UC trials by condition and location. Your GI doctor may also know of trials recruiting at your local medical center.</p>
+      <h2>Questions to ask your GI doctor about clinical trials</h2>
+      <ul>
+        <li>Am I a candidate for any active UC clinical trials?</li>
+        <li>What would participation involve, and how would it affect my current care?</li>
+        <li>Are there trials near me that I should know about?</li>
+      </ul>
+      <h2>When to contact a doctor</h2>
+      <p>Never join a clinical trial without discussing it with your GI doctor first. They can help you evaluate whether a specific trial is appropriate for your disease status and overall health.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Check if clinical trial options may apply to you.</p>
+      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">Check if Clinical Trial Options May Apply to You</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

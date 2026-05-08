@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'UC Insurance Coverage',
+  url: 'https://colitishelpusa.com/ulcerative-colitis-insurance-coverage',
+};
+
+const relatedArticles = [
+  { href: '/biologics-for-ulcerative-colitis', title: 'Biologics for UC' },
+  { href: '/ulcerative-colitis-treatment-options', title: 'UC treatment options' },
+  { href: '/ulcerative-colitis-clinical-trials-usa', title: 'UC clinical trials in the USA' },
+];
+---
+
+<BaseLayout
+  title="UC Insurance Coverage: What to Know Before Starting Treatment"
+  description="Biologic and specialty UC treatments can be expensive. Learn what insurance questions to ask and how to navigate prior authorizations and assistance programs."
+  canonical="/ulcerative-colitis-insurance-coverage"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <div class="prose-article">
+      <h1 style="color: #0B2545">Understanding insurance coverage for UC treatment</h1>
+      <QuickAnswerBox>
+        Biologic medications for UC can cost tens of thousands of dollars per year without coverage. Before starting treatment, understand your insurance benefits, whether prior authorization is needed, and what patient assistance programs may be available.
+      </QuickAnswerBox>
+      <h2>Why insurance matters for UC treatment</h2>
+      <p>Many UC medications — especially biologics and JAK inhibitors — are classified as specialty drugs and can be very expensive without insurance coverage. Understanding your benefits upfront can prevent surprise bills and help ensure you can stay on treatment long-term.</p>
+      <h2>Prior authorization (PA)</h2>
+      <p>Most insurance plans require prior authorization for specialty UC medications. This means your doctor must submit documentation showing that the medication is medically necessary for your condition. The PA process can take days to weeks.</p>
+      <p>Your GI doctor's office usually handles the PA process, but it helps to follow up with them and your insurance company to avoid delays. If a PA is denied, you have the right to appeal.</p>
+      <h2>Step therapy (step edits)</h2>
+      <p>Some insurance plans require you to try and fail on less expensive medications before approving coverage for biologics. This is called step therapy. Your doctor can document that you have already tried first-line treatments if applicable.</p>
+      <h2>Copay assistance and patient support programs</h2>
+      <p>Most biologic manufacturers offer patient assistance programs, copay cards, or free medication programs for eligible patients. These can significantly reduce out-of-pocket costs. Your doctor's office or a specialty pharmacy can help you find out what is available for your specific medication.</p>
+      <h2>Questions to ask about insurance and costs</h2>
+      <ul>
+        <li>Is this medication covered under my formulary?</li>
+        <li>What tier is it, and what is my expected copay or coinsurance?</li>
+        <li>Is prior authorization required? What is the expected timeline?</li>
+        <li>Is there a patient assistance or copay card program for this medication?</li>
+        <li>What happens if the PA is denied?</li>
+        <li>Does my plan require step therapy before approving this medication?</li>
+      </ul>
+      <h2>When to contact a doctor or specialist</h2>
+      <p>If insurance issues are delaying treatment, talk to your GI doctor's office. Many practices have patient advocates or staff who specialize in navigating coverage issues. Do not stop taking medication due to cost concerns without consulting your doctor first — there may be options available.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Get the Free Insurance Navigation Checklist.</p>
+      <CTAButton href="/uc-insurance-checklist" variant="primary" size="lg">Get the Free Insurance Navigation Checklist</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

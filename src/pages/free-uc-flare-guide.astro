@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadMagnetForm from '../components/forms/LeadMagnetForm';
+---
+
+<BaseLayout
+  title="Free UC Flare Survival Guide | ColitisHelpUSA.com"
+  description="Download the free UC Flare Survival Guide — what to eat during a flare, when to call your doctor, warning signs, and 25 questions to ask your GI."
+  canonical="/free-uc-flare-guide"
+>
+  <div style="background-color: #FAFAF8" class="min-h-screen">
+    <div class="max-w-[600px] mx-auto px-6 py-12">
+      <a href="/" class="text-sm mb-6 inline-block" style="color: #0E6B8E">← Back to ColitisHelpUSA.com</a>
+      <h1 class="text-3xl font-bold mb-3" style="color: #0B2545">Free Download: The UC Flare Survival Guide</h1>
+      <p class="text-base mb-6 leading-relaxed" style="color: #5C5C56">Plain-English help when UC symptoms spike — what to eat, when to call your doctor, and questions to ask at your next GI visit.</p>
+      <ul class="space-y-2 mb-8">
+        {[
+          'Foods that may help during a flare',
+          'Foods to avoid when symptoms are bad',
+          'Warning signs that mean you should call your doctor today',
+          '25 questions to ask your GI doctor',
+          'A printable symptom tracker',
+        ].map((item) => (
+          <li class="flex items-center gap-2 text-sm" style="color: #0B2545">
+            <span style="color: #1B7A4E">✓</span>
+            {item}
+          </li>
+        ))}
+      </ul>
+      <div class="p-6 rounded-xl mb-6" style="background-color: white; border: 1px solid #E8E8E4">
+        <LeadMagnetForm
+          source="Free UC Flare Guide"
+          buttonText="Send Me the Free Flare Guide"
+          thankYouMessage="Your UC Flare Survival Guide is on its way to your inbox. This guide is for educational purposes only and is not a substitute for advice from a licensed healthcare professional."
+          client:load
+        />
+      </div>
+      <p class="text-xs" style="color: #9C9C96">This guide is for educational purposes only. Not medical advice. Always consult a licensed healthcare professional.</p>
+    </div>
+  </div>
+</BaseLayout>

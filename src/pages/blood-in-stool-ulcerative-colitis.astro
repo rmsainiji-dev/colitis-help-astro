@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuickAnswerBox from '../components/ui/QuickAnswerBox';
+import EmergencyWarning from '../components/layout/EmergencyWarning';
+import GIQuestionsCard from '../components/ui/GIQuestionsCard';
+import RelatedArticles from '../components/ui/RelatedArticles';
+import CTAButton from '../components/ui/CTAButton';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Blood in Stool With Ulcerative Colitis',
+  url: 'https://colitishelpusa.com/blood-in-stool-ulcerative-colitis',
+};
+
+const relatedArticles = [
+  { href: '/ulcerative-colitis-symptoms', title: 'All UC symptoms' },
+  { href: '/ulcerative-colitis-flare-up', title: 'Understanding a UC flare' },
+  { href: '/ulcerative-colitis-treatment-options', title: 'UC treatment options' },
+];
+---
+
+<BaseLayout
+  title="Blood in Stool With Ulcerative Colitis: Causes and Next Steps"
+  description="Blood in stool is one of the most common UC symptoms. Learn what causes it, how much is concerning, and when to seek medical care."
+  canonical="/blood-in-stool-ulcerative-colitis"
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+    <EmergencyWarning />
+    <div class="prose-article">
+      <h1 style="color: #0B2545">Blood in stool with UC: what it means and when to act</h1>
+      <QuickAnswerBox>
+        Blood in stool is one of the hallmark symptoms of ulcerative colitis. It is caused by inflammation and ulcers in the colon lining. While small amounts of blood are common during a UC flare, heavy or sudden bleeding always warrants urgent medical attention.
+      </QuickAnswerBox>
+      <h2>Why does UC cause blood in stool?</h2>
+      <p>In ulcerative colitis, the inner lining of the colon becomes inflamed and develops small open sores called ulcers. These ulcers bleed, and that blood mixes with stool. The amount of bleeding depends on how widespread and how severe the inflammation is.</p>
+      <h2>What does it look like?</h2>
+      <p>Blood in UC-related stool is usually:</p>
+      <ul>
+        <li>Bright red or dark red in color</li>
+        <li>Mixed throughout the stool or coating it</li>
+        <li>Sometimes accompanied by mucus</li>
+        <li>Occasionally visible only on toilet paper</li>
+      </ul>
+      <p>The color and appearance can give clues about where in the colon the bleeding is occurring. Bright red blood usually comes from the lower colon or rectum. Darker blood may come from higher in the colon.</p>
+      <h2>How much blood is too much?</h2>
+      <p>Any amount of blood in stool from UC is worth monitoring. Talk to your doctor if you notice blood in stool that is new, worsening, or not responding to your current treatment. Heavy or sudden bleeding is a medical emergency and requires immediate care.</p>
+      <h2>Does blood in stool always mean a flare?</h2>
+      <p>Not always, but it often does. Blood in stool can be one of the first signs that a UC flare is developing. However, other conditions can also cause rectal bleeding — so any new or unexplained bleeding should be evaluated by a healthcare provider.</p>
+      <h2>When to contact a doctor</h2>
+      <p>Contact your healthcare provider promptly if you notice blood in stool that is new or increasing, especially if combined with more frequent bowel movements, worsening cramps, or fever. Do not wait for severe symptoms to develop.</p>
+      <p><strong>Seek emergency care immediately</strong> if you experience: heavy rectal bleeding, dizziness or lightheadedness, rapid heart rate, or signs of significant blood loss.</p>
+    </div>
+    <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
+      <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options? Take our free 8-question check.</p>
+      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">Check My UC Care Options</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
+    <RelatedArticles articles={relatedArticles} />
+  </main>
+</BaseLayout>

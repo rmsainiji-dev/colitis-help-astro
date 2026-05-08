@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadMagnetForm from '../components/forms/LeadMagnetForm';
+---
+
+<BaseLayout
+  title="Free Checklist: 25 Questions to Ask Your GI Doctor About UC"
+  description="Make the most of your next GI appointment. This free checklist covers symptoms, treatments, biologics, clinical trials, and insurance — all in plain English."
+  canonical="/gi-doctor-questions"
+>
+  <div style="background-color: #FAFAF8" class="min-h-screen">
+    <div class="max-w-[600px] mx-auto px-6 py-12">
+      <a href="/" class="text-sm mb-6 inline-block" style="color: #0E6B8E">← Back to ColitisHelpUSA.com</a>
+      <h1 class="text-3xl font-bold mb-3" style="color: #0B2545">Free Checklist: 25 Questions to Ask Your GI Doctor About UC</h1>
+      <p class="text-base mb-6 leading-relaxed" style="color: #5C5C56">Make the most of your next appointment. This checklist covers symptoms, treatments, biologics, clinical trials, and insurance — designed to help you walk in prepared.</p>
+      <div class="p-6 rounded-xl mb-6" style="background-color: white; border: 1px solid #E8E8E4">
+        <LeadMagnetForm
+          source="GI Doctor Questions Checklist"
+          buttonText="Get the Free Question Checklist"
+          thankYouMessage="Your GI doctor question checklist is ready — bring it on your phone or print it for your next appointment."
+          client:load
+        />
+      </div>
+      <p class="text-xs" style="color: #9C9C96">For educational purposes only. Not medical advice.</p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/sections/HeroSection';
+import PatientProblemStrip from '../components/sections/PatientProblemStrip';
+import QuizEntrySection from '../components/sections/QuizEntrySection';
+import SymptomsOverview from '../components/sections/SymptomsOverview';
+import FlareWarningSection from '../components/sections/FlareWarningSection';
+import TreatmentEducationSection from '../components/sections/TreatmentEducationSection';
+import DietSection from '../components/sections/DietSection';
+import InsuranceSection from '../components/sections/InsuranceSection';
+import ClinicalTrialsSection from '../components/sections/ClinicalTrialsSection';
+import LeadMagnetBanner from '../components/sections/LeadMagnetBanner';
+import FAQSection from '../components/sections/FAQSection';
+import FinalCTASection from '../components/sections/FinalCTASection';
+import { faqSchema } from '../components/sections/FAQSection';
+
+const medicalWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: 'Colitis Help USA — Ulcerative Colitis Patient Information',
+  url: 'https://colitishelpusa.com',
+  description: 'Educational information about ulcerative colitis symptoms, treatment options, diet, insurance navigation, and clinical trials in the USA.',
+  audience: { '@type': 'Patient' },
+  about: {
+    '@type': 'MedicalCondition',
+    name: 'Ulcerative Colitis',
+    code: { '@type': 'MedicalCode', code: 'K51', codingSystem: 'ICD-10' },
+  },
+};
+---
+
+<BaseLayout
+  title="Ulcerative Colitis Help & Information | ColitisHelpUSA.com"
+  description="Understand UC symptoms, treatment options, diet, insurance, and clinical trials. Free educational guidance for people living with ulcerative colitis in the USA."
+  canonical="/"
+  schema={medicalWebPageSchema}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+  <HeroSection />
+  <PatientProblemStrip />
+  <QuizEntrySection />
+  <SymptomsOverview />
+  <FlareWarningSection />
+  <TreatmentEducationSection />
+  <DietSection />
+  <InsuranceSection />
+  <ClinicalTrialsSection />
+  <LeadMagnetBanner client:load />
+  <FAQSection client:load />
+  <FinalCTASection />
+</BaseLayout>
