@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LeadMagnetForm from '../components/forms/LeadMagnetForm';
 ---
@@ -10,7 +10,7 @@ import LeadMagnetForm from '../components/forms/LeadMagnetForm';
 >
   <div style="background-color: #FAFAF8" class="min-h-screen">
     <div class="max-w-[600px] mx-auto px-6 py-12">
-      <a href="/" class="text-sm mb-6 inline-block" style="color: #0E6B8E">← Back to ColitisHelpUSA.com</a>
+      <a href={import.meta.env.BASE_URL} class="text-sm mb-6 inline-block" style="color: #0E6B8E">← Back to ColitisHelpUSA.com</a>
       <h1 class="text-3xl font-bold mb-3" style="color: #0B2545">Free Printable: UC Food and Symptom Tracker</h1>
       <p class="text-base mb-6 leading-relaxed" style="color: #5C5C56">Track what you eat, your daily symptoms, bathroom frequency, and energy levels. Use the patterns to guide conversations with your GI doctor at your next visit.</p>
       <ul class="space-y-2 mb-8">

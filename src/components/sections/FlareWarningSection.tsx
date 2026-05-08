@@ -1,3 +1,4 @@
+﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 export default function FlareWarningSection() {
   return (
     <section className="py-16 px-6" style={{ backgroundColor: '#F4F4F2' }}>
@@ -14,7 +15,7 @@ export default function FlareWarningSection() {
           <p className="text-sm mb-5 leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
             Plain-English guidance on what to eat during a flare, when to call your doctor, and questions to ask at your next GI visit.
           </p>
-          <a href="/free-uc-flare-guide" className="inline-block px-6 py-3 rounded-lg font-semibold text-sm text-white" style={{ backgroundColor: '#C8902A' }}>
+          <a href={`${BASE}/free-uc-flare-guide`} className="inline-block px-6 py-3 rounded-lg font-semibold text-sm text-white" style={{ backgroundColor: '#C8902A' }}>
             Download Free Flare Guide
           </a>
         </div>

@@ -1,3 +1,4 @@
+﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 export default function QuizEntrySection() {
   return (
     <section className="py-16 px-6" style={{ backgroundColor: '#F4F4F2' }}>
@@ -23,7 +24,7 @@ export default function QuizEntrySection() {
             </li>
           ))}
         </ul>
-        <a href="/uc-care-options-check" className="block w-full py-4 rounded-xl font-bold text-lg text-white text-center" style={{ backgroundColor: '#C8902A' }}>
+        <a href={`${BASE}/uc-care-options-check`} className="block w-full py-4 rounded-xl font-bold text-lg text-white text-center" style={{ backgroundColor: '#C8902A' }}>
           Start Free Check (8 Questions)
         </a>
         <p className="text-center text-xs mt-3" style={{ color: '#5C5C56' }}>No cost. No commitment. Educational guidance only.</p>

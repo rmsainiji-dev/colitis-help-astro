@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LeadMagnetForm from '../components/forms/LeadMagnetForm';
 import { US_STATES } from '../lib/stateList';
@@ -11,7 +11,7 @@ import { US_STATES } from '../lib/stateList';
 >
   <div style="background-color: #FAFAF8" class="min-h-screen">
     <div class="max-w-[600px] mx-auto px-6 py-12">
-      <a href="/" class="text-sm mb-6 inline-block" style="color: #0E6B8E">← Back to ColitisHelpUSA.com</a>
+      <a href={import.meta.env.BASE_URL} class="text-sm mb-6 inline-block" style="color: #0E6B8E">← Back to ColitisHelpUSA.com</a>
       <h1 class="text-3xl font-bold mb-3" style="color: #0B2545">Free Guide: Navigating Insurance Coverage for UC Biologics</h1>
       <p class="text-base mb-6 leading-relaxed" style="color: #5C5C56">Prior authorizations, copay programs, and patient support options — this checklist helps you understand what to ask and what to look for.</p>
       <div class="p-6 rounded-xl mb-6" style="background-color: white; border: 1px solid #E8E8E4">

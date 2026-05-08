@@ -1,3 +1,4 @@
+﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 export default function DietSection() {
   return (
     <section className="py-16 px-6" style={{ backgroundColor: '#F4F4F2' }}>
@@ -9,7 +10,7 @@ export default function DietSection() {
         <p className="text-base mb-6 max-w-3xl leading-relaxed" style={{ color: '#5C5C56' }}>
           During remission, most people can eat a broader range of foods. Keeping a food and symptom diary can help you identify your personal triggers.
         </p>
-        <a href="/what-to-eat-during-uc-flare" className="text-sm underline" style={{ color: '#0E6B8E' }}>What to eat during a UC flare →</a>
+        <a href={`${BASE}/what-to-eat-during-uc-flare`} className="text-sm underline" style={{ color: '#0E6B8E' }}>What to eat during a UC flare →</a>
       </div>
     </section>
   );

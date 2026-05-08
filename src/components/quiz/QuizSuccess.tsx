@@ -1,4 +1,5 @@
-'use client';
+﻿'use client';
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 
 export default function QuizSuccess() {
   return (
@@ -27,14 +28,14 @@ export default function QuizSuccess() {
       </div>
       <div className="flex flex-col gap-3">
         <a
-          href="/free-uc-flare-guide"
+          href={`${BASE}/free-uc-flare-guide`}
           className="block px-6 py-3 rounded-lg text-sm font-semibold text-white"
           style={{ backgroundColor: '#C8902A' }}
         >
           Download your free UC Flare Survival Guide →
         </a>
         <a
-          href="/gi-doctor-questions"
+          href={`${BASE}/gi-doctor-questions`}
           className="block px-6 py-3 rounded-lg text-sm font-semibold border"
           style={{ borderColor: '#0B2545', color: '#0B2545' }}
         >

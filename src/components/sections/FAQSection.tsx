@@ -1,3 +1,4 @@
+﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 'use client';
 import { useState } from 'react';
 
@@ -63,7 +64,7 @@ export default function FAQSection() {
           ))}
         </div>
         <div className="mt-6">
-          <a href="/ibd-guide" className="text-sm underline" style={{ color: '#0E6B8E' }}>
+          <a href={`${BASE}/ibd-guide`} className="text-sm underline" style={{ color: '#0E6B8E' }}>
             See all UC questions and answers →
           </a>
         </div>

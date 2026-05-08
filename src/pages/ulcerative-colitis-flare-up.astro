@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuickAnswerBox from '../components/ui/QuickAnswerBox';
 import EmergencyWarning from '../components/layout/EmergencyWarning';
@@ -63,7 +63,7 @@ const relatedArticles = [
     <GIQuestionsCard />
     <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
       <p class="text-sm mb-3" style="color: #0B2545">Want guidance on your next steps during a flare?</p>
-      <CTAButton href="/free-uc-flare-guide" variant="primary" size="lg">Get the Free UC Flare Guide</CTAButton>
+      <CTAButton href={import.meta.env.BASE_URL + "free-uc-flare-guide"} variant="primary" size="lg">Get the Free UC Flare Guide</CTAButton>
       <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
     </div>
     <RelatedArticles articles={relatedArticles} />

@@ -1,4 +1,6 @@
-import EmergencyWarning from '@/components/layout/EmergencyWarning';
+﻿import EmergencyWarning from '@/components/layout/EmergencyWarning';
+
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 
 const SYMPTOMS = [
   { icon: '🩸', title: 'Bloody diarrhea or blood in stool', desc: 'One of the most common and noticeable UC symptoms, caused by inflammation in the colon lining.' },
@@ -24,7 +26,7 @@ export default function SymptomsOverview() {
             </div>
           ))}
         </div>
-        <a href="/ulcerative-colitis-symptoms" className="text-sm underline" style={{ color: '#0E6B8E' }}>Learn more about UC symptoms →</a>
+        <a href={`${BASE}/ulcerative-colitis-symptoms`} className="text-sm underline" style={{ color: '#0E6B8E' }}>Learn more about UC symptoms →</a>
         <div className="mt-8"><EmergencyWarning /></div>
       </div>
     </section>

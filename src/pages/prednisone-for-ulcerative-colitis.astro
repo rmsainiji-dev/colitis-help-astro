@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuickAnswerBox from '../components/ui/QuickAnswerBox';
 import GIQuestionsCard from '../components/ui/GIQuestionsCard';
@@ -54,7 +54,7 @@ const relatedArticles = [
     <GIQuestionsCard />
     <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
       <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options?</p>
-      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">Check My UC Care Options</CTAButton>
+      <CTAButton href={import.meta.env.BASE_URL + "uc-care-options-check"} variant="primary" size="lg">Check My UC Care Options</CTAButton>
       <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
     </div>
     <RelatedArticles articles={relatedArticles} />

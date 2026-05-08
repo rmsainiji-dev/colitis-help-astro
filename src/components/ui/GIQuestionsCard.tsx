@@ -1,3 +1,4 @@
+﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 export default function GIQuestionsCard() {
   return (
     <div
@@ -11,7 +12,7 @@ export default function GIQuestionsCard() {
         Download our free checklist of 25 questions covering symptoms, treatment options, biologics, clinical trials, insurance, and diet. Designed to help you make the most of every appointment.
       </p>
       <a
-        href="/gi-doctor-questions"
+        href={`${BASE}/gi-doctor-questions`}
         className="inline-block px-5 py-2.5 rounded-lg font-semibold text-sm text-white"
         style={{ backgroundColor: '#C8902A' }}
       >

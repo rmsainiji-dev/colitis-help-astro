@@ -1,3 +1,4 @@
+﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 export default function InsuranceSection() {
   return (
     <section className="bg-white py-16 px-6">
@@ -6,7 +7,7 @@ export default function InsuranceSection() {
         <p className="text-base mb-6 max-w-3xl leading-relaxed" style={{ color: '#5C5C56' }}>
           Biologic medications and specialty UC treatments can be expensive without proper insurance coverage. Before starting a new treatment, it helps to understand your benefits, whether prior authorization is required, and what copay assistance or patient support programs may be available.
         </p>
-        <a href="/ulcerative-colitis-insurance-coverage" className="text-sm underline" style={{ color: '#0E6B8E' }}>Understand insurance and treatment costs →</a>
+        <a href={`${BASE}/ulcerative-colitis-insurance-coverage`} className="text-sm underline" style={{ color: '#0E6B8E' }}>Understand insurance and treatment costs →</a>
       </div>
     </section>
   );

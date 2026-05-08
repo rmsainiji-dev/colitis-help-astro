@@ -1,3 +1,4 @@
+﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 const TREATMENTS = [
   { title: 'Aminosalicylates (5-ASA / mesalamine)', desc: "Often the first treatment tried for mild to moderate UC. Works directly on the lining of the colon to reduce inflammation.", tag: 'Mild to moderate UC' },
   { title: 'Biologics', desc: "Target specific parts of the immune system to reduce inflammation. Usually considered when other treatments haven't worked well enough.", tag: 'Moderate to severe UC' },
@@ -21,7 +22,7 @@ export default function TreatmentEducationSection() {
             </div>
           ))}
         </div>
-        <a href="/ulcerative-colitis-treatment-options" className="text-sm underline" style={{ color: '#0E6B8E' }}>Compare all UC treatment options →</a>
+        <a href={`${BASE}/ulcerative-colitis-treatment-options`} className="text-sm underline" style={{ color: '#0E6B8E' }}>Compare all UC treatment options →</a>
         <p className="text-xs mt-4" style={{ color: '#9C9C96' }}>Information about treatment options is educational. Speak with your licensed healthcare provider before making any treatment decisions.</p>
       </div>
     </section>

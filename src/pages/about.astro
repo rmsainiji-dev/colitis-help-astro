@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
@@ -16,7 +16,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
     <div class="mt-8 pt-6" style="border-top: 1px solid #E8E8E4">
       <p class="text-sm" style="color: #5C5C56">
-        Questions? See our <a href="/medical-disclaimer" style="color: #0E6B8E; text-decoration: underline">Medical Disclaimer</a> and <a href="/partner-disclosure" style="color: #0E6B8E; text-decoration: underline">Partner Disclosure</a>.
+        Questions? See our <a href={import.meta.env.BASE_URL + "medical-disclaimer"} style="color: #0E6B8E; text-decoration: underline">Medical Disclaimer</a> and <a href={import.meta.env.BASE_URL + "partner-disclosure"} style="color: #0E6B8E; text-decoration: underline">Partner Disclosure</a>.
       </p>
     </div>
   </main>
