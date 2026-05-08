@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
+
 interface Article {
   href: string;
   title: string;
@@ -15,7 +17,7 @@ export default function RelatedArticles({ articles }: RelatedArticlesProps) {
         {articles.map((a) => (
           <a
             key={a.href}
-            href={a.href}
+            href={`${BASE}${a.href}`}
             className="text-sm transition-colors hover:opacity-70"
             style={{ color: '#0E6B8E', textDecoration: 'underline' }}
           >
