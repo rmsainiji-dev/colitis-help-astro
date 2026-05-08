@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -10,7 +12,7 @@ export default function Navbar() {
       style={{ borderBottom: '1px solid #E8E8E4' }}
     >
       <div className="max-w-[1220px] mx-auto px-6 flex items-center justify-between h-16">
-        <a href="/" className="font-bold text-xl" style={{ color: '#0B2545' }}>
+        <a href={`${BASE}/`} className="font-bold text-xl" style={{ color: '#0B2545' }}>
           ColitisHelpUSA.com
         </a>
 
@@ -24,7 +26,7 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <a
-            href="/uc-care-options-check"
+            href={`${BASE}/uc-care-options-check`}
             className="px-5 py-2.5 rounded-lg font-semibold text-sm text-white transition-colors"
             style={{ backgroundColor: '#C8902A' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A8761F')}
@@ -58,7 +60,7 @@ export default function Navbar() {
           <NavLink href="/ulcerative-colitis-diet" onClick={() => setOpen(false)}>Diet</NavLink>
           <NavLink href="/ulcerative-colitis-clinical-trials-usa" onClick={() => setOpen(false)}>Clinical Trials</NavLink>
           <a
-            href="/uc-care-options-check"
+            href={`${BASE}/uc-care-options-check`}
             onClick={() => setOpen(false)}
             className="mt-2 text-center px-5 py-3 rounded-lg font-semibold text-sm text-white w-full"
             style={{ backgroundColor: '#C8902A' }}
@@ -74,7 +76,7 @@ export default function Navbar() {
 function NavLink({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) {
   return (
     <a
-      href={href}
+      href={`${BASE}${href}`}
       onClick={onClick}
       className="text-sm font-medium transition-colors hover:opacity-70 py-1"
       style={{ color: '#0B2545' }}

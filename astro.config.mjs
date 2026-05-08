@@ -6,7 +6,6 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://rmsainiji-dev.github.io',
-  base: '/colitis-help-astro',
   output: 'static',
   integrations: [
     react(),

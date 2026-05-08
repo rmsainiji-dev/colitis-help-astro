@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
+
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: '#071A32', color: 'white' }}>
@@ -58,7 +60,7 @@ export default function Footer() {
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <a href={href} className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
+    <a href={`${BASE}${href}`} className="text-sm transition-colors" style={{ color: 'rgba(255,255,255,0.65)' }}>
       {children}
     </a>
   );

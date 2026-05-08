@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
+
 export default function HeroSection() {
   return (
     <section style={{ backgroundColor: '#0B2545' }} className="relative overflow-hidden">
@@ -15,14 +17,14 @@ export default function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <a
-                href="/uc-care-options-check"
+                href={`${BASE}/uc-care-options-check`}
                 className="px-8 py-4 rounded-lg font-bold text-lg text-white text-center animate-pulse-gold"
                 style={{ backgroundColor: '#C8902A' }}
               >
                 Check My UC Care Options
               </a>
               <a
-                href="/free-uc-flare-guide"
+                href={`${BASE}/free-uc-flare-guide`}
                 className="px-8 py-4 rounded-lg font-semibold text-base text-center border-2"
                 style={{ borderColor: 'rgba(255,255,255,0.5)', color: 'white' }}
               >
