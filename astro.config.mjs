@@ -5,8 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://rmsainiji-dev.github.io',
-  base: '/colitis-help-astro',
+  site: 'https://colitishelpusa.com',
   output: 'static',
   integrations: [
     react(),
