@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import ConsentCheckbox from './ConsentCheckbox';
+import { submitLead } from '@/lib/sheetsApi';
 
 const schema = z.object({
   email: z.string().email('Valid email required'),
@@ -42,11 +43,7 @@ export default function LeadMagnetForm({
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     try {
-      await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: data.email, name: data.name, source }),
-      });
+      await submitLead({ email: data.email, name: data.name, source, consentGiven: data.consent });
       setSubmitted(true);
     } finally {
       setLoading(false);

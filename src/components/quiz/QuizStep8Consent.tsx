@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useQuizStore } from '@/lib/quizStore';
+import { submitQuiz, submitConsent } from '@/lib/sheetsApi';
 
 const CONSENT_TEXT =
   'I agree that Colitis Help USA may contact me by phone, text, or email and may share my information, including health-related responses, with selected healthcare providers, care-navigation partners, or service partners who may contact me about UC-related care options. Consent is not required to use this website. Message and data rates may apply.';
@@ -18,10 +19,11 @@ export default function QuizStep8Consent() {
     }
     setLoading(true);
     try {
-      await fetch('/api/submit-quiz', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...answers, consentGiven: true }),
+      await submitQuiz({ ...answers, consentGiven: true });
+      await submitConsent({
+        email: answers.email || '',
+        phone: answers.phone || '',
+        source: 'quiz',
       });
       setSubmitted(true);
     } catch {

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { submitLead } from '@/lib/sheetsApi';
 
 const schema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -31,11 +32,7 @@ export default function InlineEmailCapture({
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     try {
-      await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, source }),
-      });
+      await submitLead({ email: data.email, name: data.name, source });
       setSubmitted(true);
     } finally {
       setLoading(false);
