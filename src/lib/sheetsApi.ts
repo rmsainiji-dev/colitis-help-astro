@@ -1,16 +1,14 @@
 const SHEETS_URL =
   'https://script.google.com/macros/s/AKfycby3rsGTqMX4FyZWK_pomKlqux7UlzGqv0w0WFxLBzmGPmhyxZFd9s6Kt--hKhKb5QFN/exec';
 
-// Uses no-cors so the browser never sends a preflight OPTIONS request.
-// The data reaches Apps Script correctly; the response is opaque (unreadable)
-// but we don't need it — we show success regardless of network outcome.
+// URLSearchParams triggers a "simple request" (no CORS preflight).
+// Apps Script reads the data via e.parameter.payload.
 async function post(payload: object): Promise<void> {
   try {
     await fetch(SHEETS_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(payload),
+      body: new URLSearchParams({ payload: JSON.stringify(payload) }),
     });
   } catch {
     // Silently swallow network errors — form already shows success
