@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Preview — Colitis Help USA</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #F4F4F2;
+      padding: 48px 32px;
+      color: #2A2A26;
+    }
+    h1 { font-size: 22px; color: #0B2545; margin-bottom: 6px; }
+    .subtitle { font-size: 14px; color: #5C5C56; margin-bottom: 40px; }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .card-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #5C5C56;
+      margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 24px;
+    }
+    .previews {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .preview-light {
+      background: #ffffff;
+      border: 1px solid #E8E8E4;
+      border-radius: 10px;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+    }
+    .preview-light-gray {
+      background: #F8F8F6;
+      border: 1px solid #E8E8E4;
+      border-radius: 10px;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+    }
+    .preview-dark {
+      background: #0B2545;
+      border-radius: 10px;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+    }
+    .preview-label {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 6px;
+      text-align: center;
+    }
+    .preview-wrap { display: flex; flex-direction: column; }
+    img { height: 44px; width: auto; display: block; }
+    .img-dark { filter: brightness(0) invert(1); }
+    .pill {
+      display: inline-block;
+      background: #E8F5F0;
+      color: #1B7A4E;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Logo Options — Colitis Help USA</h1>
+  <p class="subtitle">Three variations. Tell me which you prefer and I'll integrate it into the navbar.</p>
+
+  <!-- Option 1 -->
+  <div class="card">
+    <div class="card-title">Option 1 — Shield + Cross</div>
+    <div class="card-desc">Professional &amp; medical. Navy shield with gold accent stripe and white plus sign. "USA" in teal.</div>
+    <div class="previews">
+      <div class="preview-wrap">
+        <div class="preview-light"><img src="logo-v1.svg" alt="Logo v1 on white"></div>
+        <div class="preview-label">White background</div>
+      </div>
+      <div class="preview-wrap">
+        <div class="preview-light-gray"><img src="logo-v1.svg" alt="Logo v1 on gray"></div>
+        <div class="preview-label">Light gray background</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 2 -->
+  <div class="card">
+    <div class="card-title">Option 2 — Circle + Heart</div>
+    <div class="card-desc">Warm &amp; caring. Navy circle with a gold ring border and white heart inside. "USA" in gold.</div>
+    <div class="previews">
+      <div class="preview-wrap">
+        <div class="preview-light"><img src="logo-v2.svg" alt="Logo v2 on white"></div>
+        <div class="preview-label">White background</div>
+      </div>
+      <div class="preview-wrap">
+        <div class="preview-light-gray"><img src="logo-v2.svg" alt="Logo v2 on gray"></div>
+        <div class="preview-label">Light gray background</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option 3 -->
+  <div class="card">
+    <div class="card-title">Option 3 — Badge + Leaf</div>
+    <div class="card-desc">Natural &amp; fresh. Teal rounded badge with navy header accent and a white leaf with vein details. "USA" in gold.</div>
+    <div class="previews">
+      <div class="preview-wrap">
+        <div class="preview-light"><img src="logo-v3.svg" alt="Logo v3 on white"></div>
+        <div class="preview-label">White background</div>
+      </div>
+      <div class="preview-wrap">
+        <div class="preview-light-gray"><img src="logo-v3.svg" alt="Logo v3 on gray"></div>
+        <div class="preview-label">Light gray background</div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:13px;color:#aaa;margin-top:8px">
+    Once you choose, I'll save it as <code>logo.svg</code> and update the Navbar component to use it.
+  </p>
+</body>
+</html>

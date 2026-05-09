@@ -12,8 +12,14 @@ export default function Navbar() {
       style={{ borderBottom: '1px solid #E8E8E4' }}
     >
       <div className="max-w-[1220px] mx-auto px-6 flex items-center justify-between h-16">
-        <a href={`${BASE}/`} className="font-bold text-xl" style={{ color: '#0B2545' }}>
-          ColitisHelpUSA.com
+        <a href={`${BASE}/`} className="flex items-center" aria-label="Colitis Help USA — Home">
+          <img
+            src={`${BASE}/logo.svg`}
+            alt="Colitis Help USA"
+            height="38"
+            width="225"
+            style={{ height: '38px', width: 'auto' }}
+          />
         </a>
 
         <div className="hidden md:flex items-center gap-6">

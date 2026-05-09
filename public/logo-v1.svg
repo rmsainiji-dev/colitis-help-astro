@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 54" role="img" aria-label="Colitis Help USA">
+  <title>Colitis Help USA</title>
+  <!-- Shield body -->
+  <path d="M5,3 L47,3 L47,32 Q47,51 26,53 Q5,51 5,32 Z" fill="#0B2545"/>
+  <!-- Gold accent stripe at top of shield -->
+  <path d="M5,3 L47,3 L47,9 Q26,12 5,9 Z" fill="#C8902A"/>
+  <!-- White cross — vertical bar -->
+  <rect x="21" y="15" width="10" height="26" rx="5" fill="white"/>
+  <!-- White cross — horizontal bar -->
+  <rect x="12" y="24" width="28" height="10" rx="5" fill="white"/>
+  <!-- Wordmark -->
+  <text x="62" y="36" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="-0.3">
+    <tspan fill="#0B2545">Colitis Help</tspan><tspan fill="#0E6B8E"> USA</tspan>
+  </text>
+</svg>
