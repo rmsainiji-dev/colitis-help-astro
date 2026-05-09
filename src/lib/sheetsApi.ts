@@ -1,17 +1,17 @@
 const SHEETS_URL =
   'https://script.google.com/macros/s/AKfycby3rsGTqMX4FyZWK_pomKlqux7UlzGqv0w0WFxLBzmGPmhyxZFd9s6Kt--hKhKb5QFN/exec';
 
-// URLSearchParams triggers a "simple request" (no CORS preflight).
-// Apps Script reads the data via e.parameter.payload.
+// text/plain is a CORS-safelisted content type — no preflight request needed.
+// Apps Script adds Access-Control-Allow-Origin:* so the browser accepts the response.
 async function post(payload: object): Promise<void> {
   try {
     await fetch(SHEETS_URL, {
       method: 'POST',
-      mode: 'no-cors',
-      body: new URLSearchParams({ payload: JSON.stringify(payload) }),
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
     });
-  } catch {
-    // Silently swallow network errors — form already shows success
+  } catch (err) {
+    console.error('Sheets submission failed:', err);
   }
 }
 
