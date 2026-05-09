@@ -1,17 +1,27 @@
 const SHEETS_URL =
   'https://script.google.com/macros/s/AKfycby3rsGTqMX4FyZWK_pomKlqux7UlzGqv0w0WFxLBzmGPmhyxZFd9s6Kt--hKhKb5QFN/exec';
 
-// text/plain is a CORS-safelisted content type — no preflight request needed.
-// Apps Script adds Access-Control-Allow-Origin:* so the browser accepts the response.
 async function post(payload: object): Promise<void> {
+  const body = JSON.stringify(payload);
+  console.log('[Sheets] Sending:', body);
   try {
-    await fetch(SHEETS_URL, {
+    const res = await fetch(SHEETS_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload),
+      body,
     });
+    const text = await res.text();
+    console.log('[Sheets] Response:', res.status, text);
   } catch (err) {
-    console.error('Sheets submission failed:', err);
+    console.error('[Sheets] Fetch failed:', err);
+    // Fallback: try as GET with query param (avoids all CORS issues)
+    try {
+      const url = `${SHEETS_URL}?payload=${encodeURIComponent(body)}`;
+      await fetch(url);
+      console.log('[Sheets] Fallback GET sent');
+    } catch (err2) {
+      console.error('[Sheets] Fallback also failed:', err2);
+    }
   }
 }
 
