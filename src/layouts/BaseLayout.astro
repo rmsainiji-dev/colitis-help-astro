@@ -83,6 +83,21 @@ const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/og-default.png
       })}
     />
 
+    <!-- Organization Schema -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Colitis Help USA',
+        url: 'https://colitishelpusa.com',
+        logo: 'https://colitishelpusa.com/logo.svg',
+        sameAs: [
+          'https://www.linkedin.com/company/colitishelpusa',
+        ],
+      })}
+    />
+
     <!-- Dynamic Page Schema -->
     {schema && (
       <script
