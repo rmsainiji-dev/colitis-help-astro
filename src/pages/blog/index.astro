@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles');
+const sorted = [...articles].sort((a, b) =>
+  a.data.title.localeCompare(b.data.title)
+);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'UC Articles & Educational Resources | ColitisHelpUSA.com',
+  url: 'https://colitishelpusa.com/blog',
+  description:
+    'Plain-English articles about ulcerative colitis — symptoms, treatment options, diet, flares, biologics, and more.',
+  about: { '@type': 'MedicalCondition', name: 'Ulcerative Colitis' },
+};
+---
+
+<BaseLayout
+  title="UC Articles & Educational Resources | ColitisHelpUSA.com"
+  description="Plain-English articles about ulcerative colitis — symptoms, treatment options, diet, flares, biologics, JAK inhibitors, and more. Written for patients, not doctors."
+  canonical="/blog"
+  schema={schema}
+>
+  <main class="max-w-[1220px] mx-auto px-6 py-12">
+
+    <!-- Header -->
+    <div class="max-w-[680px] mb-10">
+      <p
+        class="text-sm font-semibold mb-2 uppercase tracking-wide"
+        style="color: #0E6B8E;"
+      >
+        Educational Resources
+      </p>
+      <h1 style="color: #0B2545; font-size: 2rem; line-height: 1.3;">
+        UC articles and guides
+      </h1>
+      <p class="mt-3 text-base leading-relaxed" style="color: #5C5C56;">
+        Plain-English information about ulcerative colitis — written for
+        patients and caregivers. Browse all topics below or take the free
+        care options check to get personalised guidance.
+      </p>
+    </div>
+
+    <!-- Article grid -->
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {sorted.map((article) => {
+        const slug = article.data.slug ?? article.id;
+        return (
+          <a
+            href={`/blog/${slug}`}
+            class="flex flex-col rounded-xl p-6 transition-shadow hover:shadow-md"
+            style="background: #ffffff; border: 1px solid #E8E8E4; text-decoration: none;"
+          >
+            <h2
+              class="font-semibold leading-snug mb-2"
+              style="color: #0B2545; font-size: 1rem;"
+            >
+              {article.data.title}
+            </h2>
+            <p
+              class="text-sm leading-relaxed flex-1 mb-4"
+              style="color: #5C5C56;"
+            >
+              {article.data.description}
+            </p>
+            <span class="text-sm font-medium" style="color: #0E6B8E;">
+              Read article →
+            </span>
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div
+      class="mt-14 rounded-xl p-8 text-center"
+      style="background-color: #E4F5F7;"
+    >
+      <p class="font-semibold mb-1" style="color: #0B2545;">
+        Want to understand your UC care options?
+      </p>
+      <p class="text-sm mb-5" style="color: #5C5C56;">
+        Answer 8 short questions about your symptoms, diagnosis, and
+        insurance.
+      </p>
+      <a
+        href="/uc-care-options-check"
+        class="inline-block px-6 py-3 rounded-lg font-semibold text-sm text-white transition-opacity hover:opacity-85"
+        style="background-color: #C8902A;"
+      >
+        Check My UC Care Options
+      </a>
+      <p class="text-xs mt-3" style="color: #5C5C56;">
+        Educational guidance only. Not medical advice.
+      </p>
+    </div>
+
+    <!-- Disclaimer -->
+    <p class="mt-10 text-xs text-center" style="color: #5C5C56;">
+      All articles on this site are for educational purposes only. They do
+      not constitute medical advice, diagnosis, or treatment. Always consult
+      a licensed healthcare professional.
+    </p>
+  </main>
+</BaseLayout>

@@ -1,0 +1,97 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EmergencyWarning from '../../components/layout/EmergencyWarning';
+import GIQuestionsCard from '../../components/ui/GIQuestionsCard';
+import RelatedArticles from '../../components/ui/RelatedArticles';
+import CTAButton from '../../components/ui/CTAButton';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map((entry) => ({
+    params: { slug: entry.data.slug ?? entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const allArticles = await getCollection('articles');
+const currentSlug = entry.data.slug ?? entry.id;
+
+const relatedArticles = allArticles
+  .filter((a) => (a.data.slug ?? a.id) !== currentSlug)
+  .slice(0, 3)
+  .map((a) => ({
+    href: `/blog/${a.data.slug ?? a.id}`,
+    title: a.data.title,
+  }));
+
+const emergencySlugs = [
+  'blood-in-stool-ulcerative-colitis',
+  'ulcerative-colitis-flare-up',
+  'ulcerative-colitis-symptoms',
+];
+const showEmergencyWarning = emergencySlugs.includes(currentSlug);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: entry.data.title,
+  url: `https://colitishelpusa.com/blog/${currentSlug}`,
+  description: entry.data.description,
+  about: { '@type': 'MedicalCondition', name: 'Ulcerative Colitis' },
+  audience: { '@type': 'Patient' },
+};
+---
+
+<BaseLayout
+  title={`${entry.data.title} | ColitisHelpUSA.com`}
+  description={entry.data.description}
+  canonical={`/blog/${currentSlug}`}
+  schema={schema}
+>
+  <main class="max-w-[800px] mx-auto px-6 py-12">
+
+    <!-- Breadcrumb -->
+    <nav class="text-xs mb-6" style="color: #5C5C56;" aria-label="Breadcrumb">
+      <a href="/" style="color: #0E6B8E; text-decoration: underline;">Home</a>
+      <span class="mx-1" aria-hidden="true">›</span>
+      <a href="/blog" style="color: #0E6B8E; text-decoration: underline;">UC Articles</a>
+      <span class="mx-1" aria-hidden="true">›</span>
+      <span>{entry.data.title}</span>
+    </nav>
+
+    {showEmergencyWarning && <EmergencyWarning />}
+
+    <!-- MDX content -->
+    <div class="prose-article">
+      <Content />
+    </div>
+
+    <!-- GI questions card -->
+    <GIQuestionsCard />
+
+    <!-- Quiz CTA -->
+    <div
+      class="my-8 p-6 rounded-xl text-center"
+      style="background-color: #E4F5F7;"
+    >
+      <p class="text-sm mb-3" style="color: #0B2545;">
+        Want to understand your UC care options? Take our free 8-question check.
+      </p>
+      <CTAButton href="/uc-care-options-check" variant="primary" size="lg">
+        Check My UC Care Options
+      </CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56;">
+        Educational guidance only. Not medical advice.
+      </p>
+    </div>
+
+    <!-- Related articles -->
+    {relatedArticles.length > 0 && (
+      <RelatedArticles articles={relatedArticles} />
+    )}
+  </main>
+</BaseLayout>

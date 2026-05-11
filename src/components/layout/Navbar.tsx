@@ -28,6 +28,7 @@ export default function Navbar() {
           <NavLink href="/ulcerative-colitis-flare-up">Flare Help</NavLink>
           <NavLink href="/ulcerative-colitis-diet">Diet</NavLink>
           <NavLink href="/ulcerative-colitis-clinical-trials-usa">Clinical Trials</NavLink>
+          <NavLink href="/blog">Articles</NavLink>
         </div>
 
         <div className="hidden md:block">
@@ -65,6 +66,7 @@ export default function Navbar() {
           <NavLink href="/ulcerative-colitis-flare-up" onClick={() => setOpen(false)}>Flare Help</NavLink>
           <NavLink href="/ulcerative-colitis-diet" onClick={() => setOpen(false)}>Diet</NavLink>
           <NavLink href="/ulcerative-colitis-clinical-trials-usa" onClick={() => setOpen(false)}>Clinical Trials</NavLink>
+          <NavLink href="/blog" onClick={() => setOpen(false)}>Articles</NavLink>
           <a
             href={`${BASE}/uc-care-options-check`}
             onClick={() => setOpen(false)}
