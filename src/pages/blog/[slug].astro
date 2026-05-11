@@ -6,6 +6,7 @@ import GIQuestionsCard from '../../components/ui/GIQuestionsCard';
 import RelatedArticles from '../../components/ui/RelatedArticles';
 import CTAButton from '../../components/ui/CTAButton';
 import QuickAnswerBox from '../../components/ui/QuickAnswerBox';
+import ShareButtons from '../../components/ui/ShareButtons.astro';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -148,6 +149,12 @@ const schema = {
     <div class="prose-article">
       <Content />
     </div>
+
+    <!-- Social share buttons -->
+    <ShareButtons
+      url={`https://colitishelpusa.com/blog/${currentSlug}`}
+      title={entry.data.title}
+    />
 
     <!-- GI questions card -->
     <GIQuestionsCard />
