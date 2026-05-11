@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2545"/>
+      <stop offset="100%" stop-color="#0D3260"/>
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0E6B8E"/>
+      <stop offset="100%" stop-color="#1289B0"/>
+    </linearGradient>
+    <linearGradient id="pillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0E6B8E" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1289B0" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1080" cy="80"  r="260" fill="#0E6B8E" opacity="0.07"/>
+  <circle cx="1140" cy="140" r="160" fill="#0E6B8E" opacity="0.07"/>
+  <circle cx="60"   cy="580" r="180" fill="#0E6B8E" opacity="0.05"/>
+
+  <!-- Subtle grid dots pattern (top-right area) -->
+  <g opacity="0.12" fill="#0E6B8E">
+    <circle cx="900" cy="60"  r="3"/><circle cx="940" cy="60"  r="3"/><circle cx="980" cy="60"  r="3"/><circle cx="1020" cy="60" r="3"/><circle cx="1060" cy="60" r="3"/>
+    <circle cx="900" cy="100" r="3"/><circle cx="940" cy="100" r="3"/><circle cx="980" cy="100" r="3"/><circle cx="1020" cy="100" r="3"/><circle cx="1060" cy="100" r="3"/>
+    <circle cx="900" cy="140" r="3"/><circle cx="940" cy="140" r="3"/><circle cx="980" cy="140" r="3"/><circle cx="1020" cy="140" r="3"/><circle cx="1060" cy="140" r="3"/>
+    <circle cx="900" cy="180" r="3"/><circle cx="940" cy="180" r="3"/><circle cx="980" cy="180" r="3"/><circle cx="1020" cy="180" r="3"/><circle cx="1060" cy="180" r="3"/>
+  </g>
+
+  <!-- Bottom teal accent bar -->
+  <rect x="0" y="610" width="1200" height="20" fill="url(#tealGrad)"/>
+
+  <!-- Left vertical accent -->
+  <rect x="80" y="110" width="3" height="410" fill="url(#tealGrad)" opacity="0.6" rx="2"/>
+
+  <!-- Logo icon — scaled 2.6x, centered at x=600, y-start=95 -->
+  <!-- Original icon: 46×48 px starting at 3,3. Scale 2.6 → 119.6×124.8 -->
+  <!-- translateX = 600 - (3*2.6) - (119.6/2) = 600 - 7.8 - 59.8 = 532.4  -->
+  <!-- translateY = 95 - 3*2.6 = 95 - 7.8 = 87.2 -->
+  <g transform="translate(532, 87) scale(2.6)">
+    <!-- Badge background -->
+    <rect x="3" y="3" width="46" height="48" rx="11" fill="#0E6B8E"/>
+    <!-- Navy top accent -->
+    <rect x="3" y="3"  width="46" height="9" rx="11" fill="#0B2545" opacity="0.5"/>
+    <rect x="3" y="8"  width="46" height="4"          fill="#0B2545" opacity="0.5"/>
+    <!-- White leaf -->
+    <path d="M26,44 Q13,36 15,23 Q17,11 26,13 Q35,11 37,23 Q39,36 26,44 Z" fill="white" opacity="0.97"/>
+    <!-- Center vein -->
+    <line x1="26" y1="44" x2="26" y2="13" stroke="#0E6B8E" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Left veins -->
+    <line x1="26" y1="34" x2="18" y2="28" stroke="#0E6B8E" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+    <line x1="26" y1="26" x2="18" y2="21" stroke="#0E6B8E" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+    <!-- Right veins -->
+    <line x1="26" y1="34" x2="34" y2="28" stroke="#0E6B8E" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+    <line x1="26" y1="26" x2="34" y2="21" stroke="#0E6B8E" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+  </g>
+
+  <!-- Brand name -->
+  <text
+    x="600" y="290"
+    font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+    font-size="82" font-weight="700" letter-spacing="-1"
+    text-anchor="middle"
+  >
+    <tspan fill="white">Colitis Help</tspan><tspan fill="#C8902A"> USA</tspan>
+  </text>
+
+  <!-- Domain -->
+  <text
+    x="600" y="340"
+    font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+    font-size="26" font-weight="400" letter-spacing="2"
+    fill="#5BB8D4" text-anchor="middle"
+  >colitishelpusa.com</text>
+
+  <!-- Divider -->
+  <rect x="450" y="368" width="300" height="2" fill="#0E6B8E" opacity="0.5" rx="1"/>
+
+  <!-- Tagline line 1 -->
+  <text
+    x="600" y="420"
+    font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+    font-size="32" font-weight="300"
+    fill="white" opacity="0.82" text-anchor="middle"
+  >Patient education for people living with</text>
+
+  <!-- Tagline line 2 -->
+  <text
+    x="600" y="462"
+    font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+    font-size="32" font-weight="500"
+    fill="#E4F5F7" text-anchor="middle"
+  >ulcerative colitis in the USA</text>
+
+  <!-- Trust pill -->
+  <rect x="390" y="502" width="420" height="46" rx="23" fill="url(#pillGrad)"/>
+  <text
+    x="600" y="531"
+    font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+    font-size="18" font-weight="400" letter-spacing="1"
+    fill="white" opacity="0.9" text-anchor="middle"
+  >Free  ·  Educational  ·  Non-commercial</text>
+</svg>
