@@ -5,6 +5,7 @@ import EmergencyWarning from '../../components/layout/EmergencyWarning';
 import GIQuestionsCard from '../../components/ui/GIQuestionsCard';
 import RelatedArticles from '../../components/ui/RelatedArticles';
 import CTAButton from '../../components/ui/CTAButton';
+import QuickAnswerBox from '../../components/ui/QuickAnswerBox';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
@@ -35,6 +36,71 @@ const emergencySlugs = [
 ];
 const showEmergencyWarning = emergencySlugs.includes(currentSlug);
 
+const faqSchemas: Record<string, object> = {
+  'crohns-vs-ulcerative-colitis': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Could my UC diagnosis actually be Crohn\'s disease?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Sometimes a UC diagnosis is revised over time as the disease pattern becomes clearer. If you have concerns, discussing them with your gastroenterologist is appropriate. A second opinion from an IBD specialist can also be valuable.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What does indeterminate colitis mean?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'In a minority of cases, IBD does not clearly fit either Crohn\'s or UC based on available evidence. This is called indeterminate colitis and may become clearer over time with additional testing or as the disease evolves.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Does treatment change if I have Crohn\'s instead of UC?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, in some ways. Some medications are approved for one condition but not the other, and the treatment strategy for small bowel Crohn\'s differs significantly from UC management. Aminosalicylates work well for UC but are generally less effective for Crohn\'s.',
+        },
+      },
+    ],
+  },
+  'jak-inhibitors-ulcerative-colitis': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is a JAK inhibitor and how does it work for UC?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'JAK inhibitors are small-molecule oral medications that block Janus kinase enzymes inside cells, reducing the inflammatory signals that drive ulcerative colitis. Unlike biologics which are injected or infused, JAK inhibitors are taken as a daily pill.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do JAK inhibitors differ from biologics for ulcerative colitis?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'JAK inhibitors are oral pills that work inside cells, while biologics are injected or infused and block targets outside cells. JAK inhibitors generally act faster (days to weeks) compared to biologics (weeks to months). Both are used for moderate to severe UC.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Who is a candidate for a JAK inhibitor for UC?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'JAK inhibitors are considered for patients with moderate to severe UC not controlled by mesalamine or steroids, UC that has not responded to biologics, or patients who prefer oral treatment over injections or infusions.',
+        },
+      },
+    ],
+  },
+};
+
+const faqSchema = faqSchemas[currentSlug] ?? null;
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalWebPage',
@@ -52,6 +118,12 @@ const schema = {
   canonical={`/blog/${currentSlug}`}
   schema={schema}
 >
+  <Fragment slot="head">
+    {faqSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    )}
+  </Fragment>
+
   <main class="max-w-[800px] mx-auto px-6 py-12">
 
     <!-- Breadcrumb -->
@@ -64,6 +136,11 @@ const schema = {
     </nav>
 
     {showEmergencyWarning && <EmergencyWarning />}
+
+    <!-- QuickAnswerBox auto-injected from article description -->
+    <QuickAnswerBox>
+      {entry.data.description}
+    </QuickAnswerBox>
 
     <!-- MDX content -->
     <div class="prose-article">
