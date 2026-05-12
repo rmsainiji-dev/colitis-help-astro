@@ -3,9 +3,9 @@ const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: '#071A32', color: 'white' }}>
-      <div className="max-w-[1220px] mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
+      <div className="max-w-[1220px] mx-auto px-4 md:px-6 py-8 md:py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="col-span-2 md:col-span-1">
             <p className="font-bold text-lg mb-2">ColitisHelpUSA.com</p>
             <p className="text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>Patient education and care-navigation information</p>
             <p className="text-sm mt-1" style={{ color: 'rgba(255,255,255,0.4)' }}>Not a medical provider</p>

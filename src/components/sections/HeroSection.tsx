@@ -3,10 +3,10 @@ const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 export default function HeroSection() {
   return (
     <section style={{ backgroundColor: '#0B2545' }} className="relative overflow-hidden">
-      <div className="max-w-[1220px] mx-auto px-6 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-[1220px] mx-auto px-4 md:px-6 py-12 md:py-24">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-5" style={{ color: 'white' }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-5" style={{ color: 'white' }}>
               Struggling with ulcerative colitis?{' '}
               <span style={{ color: '#0FA3C8' }}>
                 Understand your symptoms, treatment options, and next steps.
@@ -18,14 +18,14 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <a
                 href={`${BASE}/uc-care-options-check`}
-                className="px-8 py-4 rounded-lg font-bold text-lg text-white text-center animate-pulse-gold"
+                className="px-5 py-3 sm:px-8 sm:py-4 rounded-lg font-bold text-base sm:text-lg text-white text-center animate-pulse-gold"
                 style={{ backgroundColor: '#C8902A' }}
               >
                 Check My UC Care Options
               </a>
               <a
                 href={`${BASE}/free-uc-flare-guide`}
-                className="px-8 py-4 rounded-lg font-semibold text-base text-center border-2"
+                className="px-5 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-sm sm:text-base text-center border-2"
                 style={{ borderColor: 'rgba(255,255,255,0.5)', color: 'white' }}
               >
                 Download Free UC Flare Guide

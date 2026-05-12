@@ -11,14 +11,14 @@ export default function Navbar() {
       className="sticky top-0 z-50 bg-white"
       style={{ borderBottom: '1px solid #E8E8E4' }}
     >
-      <div className="max-w-[1220px] mx-auto px-6 flex items-center justify-between h-16">
+      <div className="max-w-[1220px] mx-auto px-4 md:px-6 flex items-center justify-between h-16">
         <a href={`${BASE}/`} className="flex items-center" aria-label="Colitis Help USA — Home">
           <img
             src={`${BASE}/logo.svg`}
             alt="Colitis Help USA"
             height="38"
             width="225"
-            style={{ height: '38px', width: 'auto' }}
+            style={{ height: '32px', width: 'auto', maxWidth: '180px' }}
           />
         </a>
 
@@ -60,7 +60,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden px-6 pb-4 flex flex-col gap-3 bg-white" style={{ borderTop: '1px solid #E8E8E4' }}>
+        <div className="md:hidden px-4 pb-4 flex flex-col gap-3 bg-white" style={{ borderTop: '1px solid #E8E8E4' }}>
           <NavLink href="/ulcerative-colitis-symptoms" onClick={() => setOpen(false)}>UC Symptoms</NavLink>
           <NavLink href="/ulcerative-colitis-treatment-options" onClick={() => setOpen(false)}>Treatments</NavLink>
           <NavLink href="/ulcerative-colitis-flare-up" onClick={() => setOpen(false)}>Flare Help</NavLink>
