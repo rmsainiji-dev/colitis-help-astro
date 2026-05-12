@@ -20,6 +20,8 @@ interface LeadMagnetFormProps {
   showName?: boolean;
   extraFields?: React.ReactNode;
   thankYouMessage?: string;
+  downloadUrl?: string;
+  downloadLabel?: string;
 }
 
 export default function LeadMagnetForm({
@@ -28,6 +30,8 @@ export default function LeadMagnetForm({
   showName = true,
   extraFields,
   thankYouMessage,
+  downloadUrl,
+  downloadLabel = 'Download Your Free Guide',
 }: LeadMagnetFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -52,13 +56,39 @@ export default function LeadMagnetForm({
 
   if (submitted) {
     return (
-      <div className="p-5 rounded-xl" style={{ backgroundColor: '#E8F5F0', border: '1px solid #1B7A4E' }}>
-        <p className="font-semibold" style={{ color: '#1B7A4E' }}>
-          ✓ {thankYouMessage || 'Your guide is on its way to your inbox!'}
-        </p>
-        <p className="text-sm mt-2" style={{ color: '#5C5C56' }}>
-          This resource is for educational purposes only and is not a substitute for advice from a licensed healthcare professional.
-        </p>
+      <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #1B7A4E' }}>
+        <div className="p-5" style={{ backgroundColor: '#E8F5F0' }}>
+          <p className="font-semibold" style={{ color: '#1B7A4E' }}>
+            ✓ {thankYouMessage || 'Your guide is on its way to your inbox!'}
+          </p>
+        </div>
+        {downloadUrl && (
+          <div className="p-5" style={{ backgroundColor: 'white', borderTop: '1px solid #D4EDDA' }}>
+            <p className="text-sm mb-3" style={{ color: '#0B2545' }}>
+              You can also download it directly right now:
+            </p>
+            <a
+              href={downloadUrl}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block w-full text-center px-6 py-3 rounded-lg font-semibold text-sm text-white"
+              style={{ backgroundColor: '#C8902A' }}
+            >
+              ↓ {downloadLabel}
+            </a>
+            <p className="text-xs mt-3" style={{ color: '#9C9C96' }}>
+              A copy is also being sent to your inbox. This guide is for educational purposes only and is not a substitute for advice from a licensed healthcare professional.
+            </p>
+          </div>
+        )}
+        {!downloadUrl && (
+          <div className="px-5 pb-5" style={{ backgroundColor: '#E8F5F0' }}>
+            <p className="text-sm" style={{ color: '#5C5C56' }}>
+              This resource is for educational purposes only and is not a substitute for advice from a licensed healthcare professional.
+            </p>
+          </div>
+        )}
       </div>
     );
   }
