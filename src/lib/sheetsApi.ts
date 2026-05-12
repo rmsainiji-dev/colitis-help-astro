@@ -1,5 +1,5 @@
 const SHEETS_URL =
-  'https://script.google.com/macros/s/AKfycbwH8kYZpsPaOvnDcQEg5MJHlMv_qOXNYVB0otxwk7A07uY2E0wOMs2cKQ6S2NuJ4AW_/exec';
+  'https://script.google.com/macros/s/AKfycby25YbtNY66qhiw2UuLNMS3UN6Njc8vCCYkmmnKyJKQmvZ0q7O9PO1eUQtxwhEYrDfE9g/exec';
 
 async function post(payload: object): Promise<void> {
   const body = JSON.stringify(payload);
