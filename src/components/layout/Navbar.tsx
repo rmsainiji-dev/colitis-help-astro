@@ -22,7 +22,7 @@ export default function Navbar() {
           />
         </a>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           <NavLink href="/ulcerative-colitis-symptoms">UC Symptoms</NavLink>
           <NavLink href="/ulcerative-colitis-treatment-options">Treatments</NavLink>
           <NavLink href="/ulcerative-colitis-flare-up">Flare Help</NavLink>
@@ -31,7 +31,7 @@ export default function Navbar() {
           <NavLink href="/blog">Articles</NavLink>
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <a
             href={`${BASE}/uc-care-options-check`}
             className="px-5 py-2.5 rounded-lg font-semibold text-sm text-white transition-colors"
@@ -44,7 +44,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden p-2"
+          className="lg:hidden p-2"
           style={{ color: '#0B2545' }}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
@@ -60,7 +60,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden px-4 pb-4 flex flex-col gap-3 bg-white" style={{ borderTop: '1px solid #E8E8E4' }}>
+        <div className="lg:hidden px-4 pb-4 flex flex-col gap-3 bg-white" style={{ borderTop: '1px solid #E8E8E4' }}>
           <NavLink href="/ulcerative-colitis-symptoms" onClick={() => setOpen(false)}>UC Symptoms</NavLink>
           <NavLink href="/ulcerative-colitis-treatment-options" onClick={() => setOpen(false)}>Treatments</NavLink>
           <NavLink href="/ulcerative-colitis-flare-up" onClick={() => setOpen(false)}>Flare Help</NavLink>
