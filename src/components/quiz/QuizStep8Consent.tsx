@@ -18,18 +18,17 @@ export default function QuizStep8Consent() {
       return;
     }
     setLoading(true);
-    try {
-      await submitQuiz({ ...answers, consentGiven: true });
-      await submitConsent({
-        email: answers.email || '',
-        phone: answers.phone || '',
-        source: 'quiz',
-      });
+    const quizOk = await submitQuiz({ ...answers, consentGiven: true });
+    await submitConsent({
+      email: answers.email || '',
+      phone: answers.phone || '',
+      source: 'quiz',
+    });
+    setLoading(false);
+    if (quizOk) {
       setSubmitted(true);
-    } catch {
+    } else {
       setError('Something went wrong. Please try again.');
-    } finally {
-      setLoading(false);
     }
   };
 

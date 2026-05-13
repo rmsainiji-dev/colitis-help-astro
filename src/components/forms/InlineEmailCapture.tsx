@@ -23,6 +23,7 @@ export default function InlineEmailCapture({
 }: InlineEmailCaptureProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -31,11 +32,13 @@ export default function InlineEmailCapture({
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
-    try {
-      await submitLead({ email: data.email, name: data.name, source });
+    setSubmitError(false);
+    const ok = await submitLead({ email: data.email, name: data.name, source });
+    setLoading(false);
+    if (ok) {
       setSubmitted(true);
-    } finally {
-      setLoading(false);
+    } else {
+      setSubmitError(true);
     }
   };
 
@@ -71,6 +74,11 @@ export default function InlineEmailCapture({
       >
         {loading ? 'Sending...' : buttonText}
       </button>
+      {submitError && (
+        <p className="text-xs mt-2 w-full" style={{ color: '#C0392B' }}>
+          Something went wrong. Please try again.
+        </p>
+      )}
     </form>
   );
 }
