@@ -7,4 +7,4 @@ Disallow: /api/
 Host: https://colitishelpusa.com
 
 # Sitemaps
-Sitemap: https://colitishelpusa.com/sitemap.xml
+Sitemap: https://colitishelpusa.com/sitemap-index.xml
