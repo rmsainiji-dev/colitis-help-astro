@@ -1,32 +1,30 @@
 const SHEETS_URL =
   'https://script.google.com/macros/s/AKfycby25YbtNY66qhiw2UuLNMS3UN6Njc8vCCYkmmnKyJKQmvZ0q7O9PO1eUQtxwhEYrDfE9g/exec';
 
-async function post(payload: object): Promise<void> {
+async function post(payload: object): Promise<boolean> {
   const body = JSON.stringify(payload);
-  console.log('[Sheets] Sending:', body);
   try {
     const res = await fetch(SHEETS_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body,
     });
-    const text = await res.text();
-    console.log('[Sheets] Response:', res.status, text);
-  } catch (err) {
-    console.error('[Sheets] Fetch failed:', err);
-    // Fallback: try as GET with query param (avoids all CORS issues)
+    await res.text();
+    return true;
+  } catch {
+    // Fallback: GET with query param avoids CORS preflight
     try {
       const url = `${SHEETS_URL}?payload=${encodeURIComponent(body)}`;
       await fetch(url);
-      console.log('[Sheets] Fallback GET sent');
-    } catch (err2) {
-      console.error('[Sheets] Fallback also failed:', err2);
+      return true;
+    } catch {
+      return false;
     }
   }
 }
 
-export async function submitQuiz(answers: object): Promise<void> {
-  await post({ type: 'quiz', ...answers, source: 'quiz' });
+export async function submitQuiz(answers: object): Promise<boolean> {
+  return post({ type: 'quiz', ...answers, source: 'quiz' });
 }
 
 export async function submitLead(data: {
@@ -35,16 +33,16 @@ export async function submitLead(data: {
   state?: string;
   source: string;
   consentGiven?: boolean;
-}): Promise<void> {
-  await post({ type: 'lead', ...data });
+}): Promise<boolean> {
+  return post({ type: 'lead', ...data });
 }
 
 export async function submitConsent(data: {
   email: string;
   phone?: string;
   source: string;
-}): Promise<void> {
-  await post({
+}): Promise<boolean> {
+  return post({
     type: 'consent',
     ...data,
     userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',

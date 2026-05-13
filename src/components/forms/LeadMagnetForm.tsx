@@ -35,6 +35,7 @@ export default function LeadMagnetForm({
 }: LeadMagnetFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -46,11 +47,13 @@ export default function LeadMagnetForm({
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
-    try {
-      await submitLead({ email: data.email, name: data.name, source, consentGiven: data.consent });
+    setSubmitError(false);
+    const ok = await submitLead({ email: data.email, name: data.name, source, consentGiven: data.consent });
+    setLoading(false);
+    if (ok) {
       setSubmitted(true);
-    } finally {
-      setLoading(false);
+    } else {
+      setSubmitError(true);
     }
   };
 
@@ -131,6 +134,11 @@ export default function LeadMagnetForm({
       >
         {loading ? 'Sending...' : buttonText}
       </button>
+      {submitError && (
+        <p className="text-xs text-center" style={{ color: '#C0392B' }}>
+          Something went wrong. Please try again or email us directly.
+        </p>
+      )}
     </form>
   );
 }
