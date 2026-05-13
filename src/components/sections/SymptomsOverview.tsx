@@ -1,4 +1,4 @@
-﻿import EmergencyWarning from '@/components/layout/EmergencyWarning';
+import EmergencyWarning from '@/components/layout/EmergencyWarning';
 
 const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 

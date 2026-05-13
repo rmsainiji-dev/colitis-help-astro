@@ -1,4 +1,4 @@
-﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 export default function InsuranceSection() {
   return (
     <section className="bg-white py-16 px-6">

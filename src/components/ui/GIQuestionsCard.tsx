@@ -1,4 +1,4 @@
-﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 export default function GIQuestionsCard() {
   return (
     <div

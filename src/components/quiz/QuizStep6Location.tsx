@@ -26,11 +26,12 @@ export default function QuizStep6Location() {
       </p>
       <div className="space-y-4 mb-5">
         <div>
-          <label className="block text-sm font-medium mb-1" style={{ color: '#0B2545' }}>State *</label>
+          <label htmlFor="quiz-state" className="block text-sm font-medium mb-1" style={{ color: '#0B2545' }}>State *</label>
           <select
+            id="quiz-state"
             value={state}
             onChange={(e) => { setState(e.target.value); setError(''); }}
-            className="w-full px-4 py-3 rounded-lg border text-sm focus:outline-none"
+            className="w-full px-4 py-3 rounded-lg border text-sm"
             style={{ borderColor: '#E8E8E4', color: '#2A2A26', backgroundColor: 'white' }}
           >
             <option value="">Select your state</option>
@@ -40,16 +41,17 @@ export default function QuizStep6Location() {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1" style={{ color: '#0B2545' }}>
+          <label htmlFor="quiz-zip" className="block text-sm font-medium mb-1" style={{ color: '#0B2545' }}>
             ZIP code (optional but encouraged)
           </label>
           <input
+            id="quiz-zip"
             type="text"
             value={zip}
             onChange={(e) => { setZip(e.target.value); setError(''); }}
             placeholder="e.g. 90210"
             maxLength={5}
-            className="w-full px-4 py-3 rounded-lg border text-sm focus:outline-none"
+            className="w-full px-4 py-3 rounded-lg border text-sm"
             style={{ borderColor: '#E8E8E4', color: '#2A2A26', backgroundColor: 'white' }}
           />
         </div>

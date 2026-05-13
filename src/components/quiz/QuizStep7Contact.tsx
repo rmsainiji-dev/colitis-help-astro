@@ -44,34 +44,37 @@ export default function QuizStep7Contact() {
       </p>
       <div className="space-y-4 mb-5">
         <div>
-          <label className="block text-sm font-medium mb-1" style={{ color: '#0B2545' }}>Full name *</label>
+          <label htmlFor="quiz-fullname" className="block text-sm font-medium mb-1" style={{ color: '#0B2545' }}>Full name *</label>
           <input
             {...register('fullName')}
+            id="quiz-fullname"
             type="text"
             placeholder="Your name"
-            className="w-full px-4 py-3 rounded-lg border text-sm focus:outline-none"
+            className="w-full px-4 py-3 rounded-lg border text-sm"
             style={{ borderColor: errors.fullName ? '#C0392B' : '#E8E8E4', backgroundColor: 'white' }}
           />
           {errors.fullName && <p className="text-xs mt-1" style={{ color: '#C0392B' }}>{errors.fullName.message}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1" style={{ color: '#0B2545' }}>Email address *</label>
+          <label htmlFor="quiz-email" className="block text-sm font-medium mb-1" style={{ color: '#0B2545' }}>Email address *</label>
           <input
             {...register('email')}
+            id="quiz-email"
             type="email"
             placeholder="your@email.com"
-            className="w-full px-4 py-3 rounded-lg border text-sm focus:outline-none"
+            className="w-full px-4 py-3 rounded-lg border text-sm"
             style={{ borderColor: errors.email ? '#C0392B' : '#E8E8E4', backgroundColor: 'white' }}
           />
           {errors.email && <p className="text-xs mt-1" style={{ color: '#C0392B' }}>{errors.email.message}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1" style={{ color: '#0B2545' }}>Phone number (optional)</label>
+          <label htmlFor="quiz-phone" className="block text-sm font-medium mb-1" style={{ color: '#0B2545' }}>Phone number (optional)</label>
           <input
             {...register('phone')}
+            id="quiz-phone"
             type="tel"
             placeholder="10-digit US number"
-            className="w-full px-4 py-3 rounded-lg border text-sm focus:outline-none"
+            className="w-full px-4 py-3 rounded-lg border text-sm"
             style={{ borderColor: '#E8E8E4', backgroundColor: 'white' }}
           />
           <p className="text-xs mt-1" style={{ color: '#5C5C56' }}>

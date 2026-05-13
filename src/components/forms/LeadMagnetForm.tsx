@@ -10,6 +10,7 @@ const schema = z.object({
   email: z.string().email('Valid email required'),
   name: z.string().optional(),
   consent: z.boolean().refine((v) => v === true, 'You must agree to continue'),
+  _hp: z.string().optional(),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -48,7 +49,7 @@ export default function LeadMagnetForm({
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     setSubmitError(false);
-    const ok = await submitLead({ email: data.email, name: data.name, source, consentGiven: data.consent });
+    const ok = await submitLead({ email: data.email, name: data.name, source, consentGiven: data.consent, _hp: data._hp });
     setLoading(false);
     if (ok) {
       setSubmitted(true);
@@ -98,12 +99,22 @@ export default function LeadMagnetForm({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-md">
+      {/* Honeypot — hidden from real users, bots fill it automatically */}
+      <input
+        {...register('_hp')}
+        type="text"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ display: 'none' }}
+      />
       {showName && (
         <input
           {...register('name')}
           type="text"
           placeholder="First name (optional)"
-          className="w-full px-4 py-3 rounded-lg text-sm border focus:outline-none"
+          aria-label="First name (optional)"
+          className="w-full px-4 py-3 rounded-lg text-sm border"
           style={{ borderColor: '#E8E8E4', color: '#2A2A26', backgroundColor: 'white' }}
         />
       )}
@@ -112,7 +123,8 @@ export default function LeadMagnetForm({
           {...register('email')}
           type="email"
           placeholder="Email address"
-          className="w-full px-4 py-3 rounded-lg text-sm border focus:outline-none"
+          aria-label="Email address"
+          className="w-full px-4 py-3 rounded-lg text-sm border"
           style={{ borderColor: errors.email ? '#C0392B' : '#E8E8E4', color: '#2A2A26', backgroundColor: 'white' }}
         />
         {errors.email && (

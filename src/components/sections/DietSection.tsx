@@ -1,4 +1,4 @@
-﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 export default function DietSection() {
   return (
     <section className="py-16 px-6" style={{ backgroundColor: '#F4F4F2' }}>

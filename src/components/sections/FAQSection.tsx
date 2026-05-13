@@ -1,4 +1,4 @@
-﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 'use client';
 import { useState } from 'react';
 
@@ -47,16 +47,18 @@ export default function FAQSection() {
             <div key={i} className="rounded-xl overflow-hidden" style={{ border: '1px solid #E8E8E4' }}>
               <button
                 onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+                aria-controls={`faq-answer-${i}`}
                 className="w-full text-left px-5 py-4 flex justify-between items-center font-semibold text-sm"
                 style={{ color: '#0B2545', backgroundColor: 'white' }}
               >
                 {f.q}
-                <span style={{ color: '#0E6B8E', flexShrink: 0, marginLeft: 8 }}>
+                <span aria-hidden="true" style={{ color: '#0E6B8E', flexShrink: 0, marginLeft: 8 }}>
                   {open === i ? '−' : '+'}
                 </span>
               </button>
               {open === i && (
-                <div className="px-5 pb-4 text-sm leading-relaxed" style={{ color: '#5C5C56', backgroundColor: 'white' }}>
+                <div id={`faq-answer-${i}`} role="region" className="px-5 pb-4 text-sm leading-relaxed" style={{ color: '#5C5C56', backgroundColor: 'white' }}>
                   {f.a}
                 </div>
               )}

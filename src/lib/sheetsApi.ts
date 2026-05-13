@@ -33,8 +33,12 @@ export async function submitLead(data: {
   state?: string;
   source: string;
   consentGiven?: boolean;
+  _hp?: string;
 }): Promise<boolean> {
-  return post({ type: 'lead', ...data });
+  // Honeypot: bots fill hidden fields, real users never do
+  if (data._hp) return true;
+  const { _hp, ...payload } = data;
+  return post({ type: 'lead', ...payload });
 }
 
 export async function submitConsent(data: {

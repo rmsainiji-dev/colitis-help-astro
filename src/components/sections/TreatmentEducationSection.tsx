@@ -1,4 +1,4 @@
-﻿const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 const TREATMENTS = [
   { title: 'Aminosalicylates (5-ASA / mesalamine)', desc: "Often the first treatment tried for mild to moderate UC. Works directly on the lining of the colon to reduce inflammation.", tag: 'Mild to moderate UC' },
   { title: 'Biologics', desc: "Target specific parts of the immune system to reduce inflammation. Usually considered when other treatments haven't worked well enough.", tag: 'Moderate to severe UC' },

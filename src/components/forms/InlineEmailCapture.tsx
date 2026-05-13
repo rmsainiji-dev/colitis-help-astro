@@ -8,6 +8,7 @@ import { submitLead } from '@/lib/sheetsApi';
 const schema = z.object({
   email: z.string().email('Please enter a valid email address'),
   name: z.string().optional(),
+  _hp: z.string().optional(),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -33,7 +34,7 @@ export default function InlineEmailCapture({
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     setSubmitError(false);
-    const ok = await submitLead({ email: data.email, name: data.name, source });
+    const ok = await submitLead({ email: data.email, name: data.name, source, _hp: data._hp });
     setLoading(false);
     if (ok) {
       setSubmitted(true);
@@ -57,7 +58,8 @@ export default function InlineEmailCapture({
           {...register('email')}
           type="email"
           placeholder="Your email address"
-          className="w-full px-4 py-3 rounded-lg text-sm border focus:outline-none"
+          aria-label="Email address"
+          className="w-full px-4 py-3 rounded-lg text-sm border"
           style={{ borderColor: errors.email ? '#C0392B' : '#E8E8E4', color: '#2A2A26', backgroundColor: 'white' }}
         />
         {errors.email && (

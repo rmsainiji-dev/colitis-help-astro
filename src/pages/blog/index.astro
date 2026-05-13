@@ -3,9 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const articles = await getCollection('articles');
-const sorted = [...articles].sort((a, b) =>
-  a.data.title.localeCompare(b.data.title)
-);
+const sorted = [...articles].sort((a, b) => {
+  const dateA = a.data.publishDate ?? '2026-01-01';
+  const dateB = b.data.publishDate ?? '2026-01-01';
+  return dateB.localeCompare(dateA); // newest first
+});
 
 const schema = {
   '@context': 'https://schema.org',
@@ -40,7 +42,7 @@ const schema = {
       <p class="mt-3 text-base leading-relaxed" style="color: #5C5C56;">
         Plain-English information about ulcerative colitis — written for
         patients and caregivers. Browse all topics below or take the free
-        care options check to get personalised guidance.
+        care options check to get personalized guidance.
       </p>
     </div>
 
@@ -48,12 +50,18 @@ const schema = {
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {sorted.map((article) => {
         const slug = article.data.slug ?? article.id;
+        const pubDate = article.data.publishDate
+          ? new Date(article.data.publishDate + 'T12:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+          : null;
         return (
           <a
             href={`/blog/${slug}`}
             class="flex flex-col rounded-xl p-4 sm:p-6 transition-shadow hover:shadow-md"
             style="background: #ffffff; border: 1px solid #E8E8E4; text-decoration: none;"
           >
+            {pubDate && (
+              <p class="text-xs mb-2" style="color: #9C9C96;">{pubDate}</p>
+            )}
             <h2
               class="font-semibold leading-snug mb-2"
               style="color: #0B2545; font-size: 1rem;"

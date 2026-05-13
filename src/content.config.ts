@@ -8,6 +8,7 @@ const articles = defineCollection({
     description: z.string(),
     slug: z.string().optional(),
     canonical: z.string().optional(),
+    publishDate: z.string().optional(),
   }),
 });
 

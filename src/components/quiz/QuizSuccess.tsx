@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') ?? '';
 
 export default function QuizSuccess() {

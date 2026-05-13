@@ -50,7 +50,7 @@ export default function Footer() {
             Colitis Help USA is an educational website and care-navigation resource. We do not provide medical advice, diagnosis, or treatment. Information on this website should not replace guidance from a licensed healthcare professional. If you are experiencing severe symptoms such as heavy bleeding, high fever, dehydration, or severe abdominal pain, seek urgent medical care or call emergency services.
           </p>
           <p className="text-xs mt-3" style={{ color: 'rgba(255,255,255,0.25)' }}>
-            © 2025 ColitisHelpUSA.com — Educational use only
+            © {new Date().getFullYear()} ColitisHelpUSA.com — Educational use only
           </p>
         </div>
       </div>
