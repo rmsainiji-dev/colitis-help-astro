@@ -13,13 +13,13 @@ export default function QuizSuccess() {
         </svg>
       </div>
       <h1 className="text-2xl font-bold mb-4" style={{ color: '#0B2545' }}>
-        Thank you — your information has been received
+        Thank you — your responses have been received
       </h1>
       <p className="text-sm mb-4 leading-relaxed" style={{ color: '#5C5C56' }}>
-        Based on your responses, we may share educational resources and, where appropriate, selected care-navigation options that may apply to your situation.
+        Based on what you shared, we have put together some free educational resources to help you understand your UC care options and prepare for conversations with your gastroenterologist.
       </p>
       <p className="text-sm mb-6 leading-relaxed" style={{ color: '#5C5C56' }}>
-        A care-navigation partner may contact you by email or phone if your responses match available options in your area.
+        Check your inbox — we are sending you a free educational guide to help you get the most from your next GI appointment.
       </p>
       <div className="p-4 rounded-xl mb-8" style={{ backgroundColor: '#FDECEA', border: '1px solid #C0392B' }}>
         <p className="text-sm" style={{ color: '#C0392B' }}>
