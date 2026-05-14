@@ -16,32 +16,40 @@ export default function QuizSuccess() {
         Thank you — your responses have been received
       </h1>
       <p className="text-sm mb-4 leading-relaxed" style={{ color: '#5C5C56' }}>
-        Based on what you shared, we have put together some free educational resources to help you understand your UC care options and prepare for conversations with your gastroenterologist.
+        Based on what you shared, we have put together a free educational guide to help you understand your UC care options and get the most from your next GI appointment.
       </p>
       <p className="text-sm mb-6 leading-relaxed" style={{ color: '#5C5C56' }}>
-        Check your inbox — we are sending you a free educational guide to help you get the most from your next GI appointment.
+        A copy is also being sent to your inbox.
       </p>
-      <div className="p-4 rounded-xl mb-8" style={{ backgroundColor: '#FDECEA', border: '1px solid #C0392B' }}>
+
+      <a
+        href={`${BASE}/uc-care-options-guide.pdf`}
+        download
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full px-6 py-4 rounded-xl text-sm font-semibold text-white mb-3 text-center"
+        style={{ backgroundColor: '#C8902A' }}
+      >
+        Download your free UC Care Options Guide →
+      </a>
+
+      <div className="p-4 rounded-xl mb-6" style={{ backgroundColor: '#E4F5F7', border: '1px solid #0E6B8E' }}>
+        <p className="text-xs font-semibold mb-2" style={{ color: '#0B2545' }}>Inside your guide:</p>
+        <ul className="text-xs space-y-1 text-left" style={{ color: '#5C5C56' }}>
+          <li>→ UC severity levels and how treatment usually progresses</li>
+          <li>→ Biologics explained in plain language — what they are and when doctors use them</li>
+          <li>→ What remission really means — clinical, endoscopic, and deep</li>
+          <li>→ Signs your current treatment may need adjustment and what to track weekly</li>
+          <li>→ Questions to bring to your GI appointment and emergency warning signs</li>
+        </ul>
+      </div>
+
+      <div className="p-4 rounded-xl mb-6" style={{ backgroundColor: '#FDECEA', border: '1px solid #C0392B' }}>
         <p className="text-sm" style={{ color: '#C0392B' }}>
           <strong>Important:</strong> This is not medical advice. If symptoms are severe or urgent, contact your doctor or seek emergency care immediately.
         </p>
       </div>
-      <div className="flex flex-col gap-3">
-        <a
-          href={`${BASE}/free-uc-flare-guide`}
-          className="block px-6 py-3 rounded-lg text-sm font-semibold text-white"
-          style={{ backgroundColor: '#C8902A' }}
-        >
-          Download your free UC Flare Survival Guide →
-        </a>
-        <a
-          href={`${BASE}/gi-doctor-questions`}
-          className="block px-6 py-3 rounded-lg text-sm font-semibold border"
-          style={{ borderColor: '#0B2545', color: '#0B2545' }}
-        >
-          See questions to ask your GI doctor →
-        </a>
-      </div>
+
     </div>
   );
 }
