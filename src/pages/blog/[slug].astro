@@ -440,6 +440,44 @@ const faqSchemas: Record<string, object> = {
       },
     ],
   },
+  'uc-surgery-colectomy': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'When is surgery recommended for ulcerative colitis?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Surgery is recommended when UC does not respond to IV steroids or biologics during a severe flare, when multiple medications have failed to control chronic symptoms, when dysplasia or cancer is found during colonoscopy, or when medication side effects make continued treatment unsafe.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Does colectomy cure ulcerative colitis?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Removing the colon eliminates UC in that organ since the disease is limited to the colon and rectum. However surgery is a major procedure with its own long-term considerations including pouchitis in J-pouch patients and lifestyle adjustments for those with a permanent ileostomy.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is a J-pouch and who is it for?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: "A J-pouch is an internal reservoir made from the small intestine that allows patients to pass stool normally after the colon and rectum are removed. It is the most common UC surgery for eligible patients. Not everyone qualifies — Crohn's disease, rectal cancer, or poor sphincter function may exclude a patient from J-pouch surgery.",
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How long is recovery after UC surgery?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Each surgical stage requires a hospital stay of 3 to 7 days and a recovery period of 6 to 12 weeks. J-pouch surgery is typically done in 2 to 3 stages over several months. Most patients return to normal activities within 3 months of their final surgery.',
+        },
+      },
+    ],
+  },
   'prednisone-for-ulcerative-colitis': {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -555,6 +593,12 @@ const ctaBlocks: Record<string, CtaBlock> = {
     body: 'Download our free UC Treatment Comparison Guide — every major UC medication explained in plain English, from mesalamine to biologics and JAK inhibitors.',
     button: 'Get the Free Treatment Guide',
     href: '/uc-treatment-comparison',
+  },
+  'uc-surgery-colectomy': {
+    heading: 'Facing a major UC decision?',
+    body: 'Download our free checklist of 25 questions to ask your GI doctor — covering treatment options, when to consider surgery, and how to get a second opinion.',
+    button: 'Get the Free GI Checklist',
+    href: '/gi-doctor-questions',
   },
 };
 const ctaBlock: CtaBlock | null = ctaBlocks[currentSlug] ?? null;
