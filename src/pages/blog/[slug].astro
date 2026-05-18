@@ -394,6 +394,52 @@ const faqSchemas: Record<string, object> = {
       },
     ],
   },
+  'biologics-for-ulcerative-colitis': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What are biologics for ulcerative colitis?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Biologics are injectable or infused medications that target specific proteins in the immune system responsible for inflammation. Common biologics for UC include infliximab (Remicade), adalimumab (Humira), vedolizumab (Entyvio), and ustekinumab (Stelara).',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How long do biologics take to work for UC?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Some patients see improvement within 2 to 4 weeks, but full response can take up to 12 to 16 weeks. Your doctor will typically assess response after the induction phase before continuing maintenance dosing.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What are the main side effects of biologics for UC?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Common side effects include increased risk of infection, injection site reactions, and fatigue. Rare but serious risks include reactivation of tuberculosis and certain cancers. Your doctor will screen you before starting and monitor you throughout treatment.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I stop taking biologics if I feel better?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. Stopping biologics without medical guidance can cause a rapid return of symptoms or loss of response when restarting. Always discuss any changes to your treatment with your gastroenterologist.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Are biologics covered by insurance for UC?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Most insurance plans cover biologics for UC when other treatments have failed and medical necessity is documented. Prior authorization is usually required. Patient assistance programs are also available from most manufacturers.',
+        },
+      },
+    ],
+  },
 };
 
 const faqSchema = faqSchemas[currentSlug] ?? null;
