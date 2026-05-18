@@ -30,6 +30,7 @@ export default function Footer() {
               <FooterLink href="/ulcerative-colitis-clinical-trials-usa">Clinical Trials</FooterLink>
               <FooterLink href="/crohns-vs-ulcerative-colitis">Crohn&apos;s vs UC</FooterLink>
               <FooterLink href="/ibd-vs-ibs">IBD vs IBS</FooterLink>
+              <FooterLink href="/uc-symptom-tracker">UC Symptom Tracker</FooterLink>
             </div>
           </div>
 

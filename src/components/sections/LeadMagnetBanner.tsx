@@ -19,17 +19,24 @@ export default function LeadMagnetBanner() {
             'Foods that may help and hurt during a flare',
             'Warning signs that mean you should call your doctor',
             '25 questions to ask your GI doctor',
-            'A simple symptom tracker template',
           ].map((item) => (
             <li key={item} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.85)' }}>
               <span style={{ color: '#C8902A' }}>✓</span>
               {item}
             </li>
           ))}
+          <li className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.85)' }}>
+            <span style={{ color: '#C8902A' }}>✓</span>
+            A free printable{' '}
+            <a href="/uc-symptom-tracker" style={{ color: '#C8902A', textDecoration: 'underline' }}>
+              symptom tracker
+            </a>
+            {' '}to bring to your GI appointment
+          </li>
         </ul>
         <InlineEmailCapture source="Homepage Lead Magnet" buttonText="Send Me the Free Guide" />
         <p className="text-xs mt-3" style={{ color: 'rgba(255,255,255,0.35)' }}>
-          By submitting, you agree that Colitis Help USA may contact you and may share your information with selected care-navigation or healthcare partners. Consent not required to use this site.
+          I agree that Colitis Help USA may contact me by email to share free educational resources about ulcerative colitis care options. My information will not be sold. Consent is not required to use this website.
         </p>
       </div>
     </section>

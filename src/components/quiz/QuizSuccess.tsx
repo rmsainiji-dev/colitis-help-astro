@@ -50,6 +50,17 @@ export default function QuizSuccess() {
         </p>
       </div>
 
+      <div className="mt-6 pt-6" style={{ borderTop: '1px solid #E8E8E4' }}>
+        <p className="text-xs font-semibold mb-2" style={{ color: '#5C5C56' }}>Next step</p>
+        <a
+          href={`${BASE}/uc-symptom-tracker`}
+          className="block w-full px-6 py-3 rounded-lg text-sm font-semibold text-center"
+          style={{ backgroundColor: '#E8F5F0', color: '#1B7A4E', border: '1px solid #1B7A4E' }}
+        >
+          Start tracking your symptoms →
+        </a>
+      </div>
+
     </div>
   );
 }
