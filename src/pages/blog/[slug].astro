@@ -440,6 +440,44 @@ const faqSchemas: Record<string, object> = {
       },
     ],
   },
+  'prednisone-for-ulcerative-colitis': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How long do you take prednisone for a UC flare?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Most doctors prescribe prednisone for 3 to 12 weeks with a gradual taper. The dose is slowly reduced over time — never stopped suddenly — based on how your symptoms respond. The goal is to get off prednisone as quickly as safely possible.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What are the side effects of prednisone for UC?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Short-term side effects include insomnia, mood changes, increased appetite, weight gain, fluid retention, and elevated blood sugar. Long-term use can cause bone loss, adrenal suppression, cataracts, high blood pressure, and increased diabetes risk. This is why prednisone is only used short-term.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is steroid dependence in UC?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Steroid dependence means your UC symptoms return every time you try to taper off prednisone. Steroid resistance means prednisone never adequately controlled your symptoms. Both are signs that a stronger long-term therapy such as a biologic or JAK inhibitor is needed.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What comes after prednisone for UC?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Prednisone is never a long-term solution for UC. After prednisone, doctors typically move to immunomodulators like azathioprine, biologics like infliximab or vedolizumab, or JAK inhibitors like upadacitinib for sustained disease control.',
+        },
+      },
+    ],
+  },
 };
 
 const faqSchema = faqSchemas[currentSlug] ?? null;
@@ -511,6 +549,12 @@ const ctaBlocks: Record<string, CtaBlock> = {
     body: 'Download our free checklist of 25 questions to ask your GI doctor about monitoring, treatment adjustments, and long-term remission strategies.',
     button: 'Get the Free GI Checklist',
     href: '/gi-doctor-questions',
+  },
+  'prednisone-for-ulcerative-colitis': {
+    heading: 'Not sure what comes after prednisone?',
+    body: 'Download our free UC Treatment Comparison Guide — every major UC medication explained in plain English, from mesalamine to biologics and JAK inhibitors.',
+    button: 'Get the Free Treatment Guide',
+    href: '/uc-treatment-comparison',
   },
 };
 const ctaBlock: CtaBlock | null = ctaBlocks[currentSlug] ?? null;
