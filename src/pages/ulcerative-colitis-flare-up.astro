@@ -60,6 +60,7 @@ const relatedArticles = [
       <p>Contact your GI doctor if you think you are entering a flare, especially if you have significant blood in stool, symptoms that are getting worse quickly, or signs that your current medication is not working. Early intervention can prevent a mild flare from becoming severe.</p>
       <EmergencyWarning />
     </div>
+    <p class="mt-6 text-sm font-semibold"><a href="/blog/ulcerative-colitis-flare-up" style="color: #C8902A;">Read our full UC flare-up guide →</a></p>
     <div class="my-8 p-4 sm:p-6 rounded-xl" style="background-color: #E8F5F0; border: 1px solid #1B7A4E;">
       <p class="text-sm font-semibold mb-2" style="color: #0B2545;">Track your symptoms daily</p>
       <p class="text-sm mb-4" style="color: #5C5C56;">Use our free printable UC Symptom Tracker to log pain, urgency, stool frequency, and foods. Bring it to your next GI appointment.</p>
@@ -70,6 +71,11 @@ const relatedArticles = [
       >Get the Free Tracker →</a>
     </div>
     <GIQuestionsCard />
+    <div class="my-8 p-6 rounded-xl text-center" style="background-color: #EEF2FF">
+      <p class="text-sm mb-3" style="color: #0B2545">Want to understand your UC care options? Take our free 8-question check.</p>
+      <CTAButton href={import.meta.env.BASE_URL + "uc-care-options-check"} variant="primary" size="lg">Check My UC Care Options</CTAButton>
+      <p class="text-xs mt-2" style="color: #5C5C56">Educational guidance only. Not medical advice.</p>
+    </div>
     <div class="my-8 p-6 rounded-xl text-center" style="background-color: #E4F5F7">
       <p class="text-sm mb-3" style="color: #0B2545">Want guidance on your next steps during a flare?</p>
       <CTAButton href={import.meta.env.BASE_URL + "free-uc-flare-guide"} variant="primary" size="lg">Get the Free UC Flare Guide</CTAButton>
