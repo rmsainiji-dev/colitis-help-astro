@@ -8,7 +8,7 @@ interface ConsentCheckboxProps {
 }
 
 const CONSENT_TEXT =
-  'I agree that Colitis Help USA may contact me by phone, text, or email and may share my information, including health-related responses, with selected healthcare providers, care-navigation partners, or service partners who may contact me about UC-related care options. Consent is not required to use this website. Message and data rates may apply.';
+  'I agree that Colitis Help USA may contact me by email to share free educational resources about ulcerative colitis care options. My information will not be sold. Consent is not required to use this website.';
 
 export default function ConsentCheckbox({ register, name, error }: ConsentCheckboxProps) {
   return (

@@ -136,7 +136,7 @@ export default function LeadMagnetForm({
       {extraFields}
       <ConsentCheckbox register={register} name="consent" error={errors.consent?.message} />
       <p className="text-xs" style={{ color: 'rgba(0,0,0,0.4)' }}>
-        By submitting, you agree that Colitis Help USA may contact you and may share your information with selected care-navigation or healthcare partners. Consent not required to use this site.
+        I agree that Colitis Help USA may contact me by email to share free educational resources about ulcerative colitis care options. My information will not be sold. Consent is not required to use this website.
       </p>
       <button
         type="submit"
