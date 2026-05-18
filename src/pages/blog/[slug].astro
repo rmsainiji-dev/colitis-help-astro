@@ -440,6 +440,44 @@ const faqSchemas: Record<string, object> = {
       },
     ],
   },
+  'ulcerative-colitis-pregnancy': {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Can I get pregnant if I have ulcerative colitis?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Most women with UC can conceive and have healthy pregnancies. UC itself does not significantly reduce fertility in most cases. The best outcomes occur when UC is in remission at the time of conception and throughout pregnancy.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Which UC medications are safe during pregnancy?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mesalamine and sulfasalazine are generally considered safe during pregnancy. Most biologic medications including infliximab and adalimumab are also considered low risk. Methotrexate is absolutely contraindicated and must be stopped at least 3 to 6 months before conception. Never stop or change any medication without consulting your gastroenterologist first.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What happens if I have a UC flare during pregnancy?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Contact your GI doctor immediately if you think you are having a flare during pregnancy. Mild flares may be managed with mesalamine adjustments. Moderate flares may require short-term corticosteroids. Severe flares may require hospitalization. Untreated severe inflammation poses more risk to the baby than most UC medications used to treat it.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I breastfeed while taking UC medication?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Many UC medications are compatible with breastfeeding including mesalamine and most biologics. Always discuss each medication individually with your gastroenterologist and pediatrician before breastfeeding. Never stop a medication without medical guidance.',
+        },
+      },
+    ],
+  },
   'uc-surgery-colectomy': {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -593,6 +631,12 @@ const ctaBlocks: Record<string, CtaBlock> = {
     body: 'Download our free UC Treatment Comparison Guide — every major UC medication explained in plain English, from mesalamine to biologics and JAK inhibitors.',
     button: 'Get the Free Treatment Guide',
     href: '/uc-treatment-comparison',
+  },
+  'ulcerative-colitis-pregnancy': {
+    heading: 'Questions to bring to your GI appointment?',
+    body: 'Download our free checklist of 25 questions to ask your GI doctor — including questions about pregnancy planning, medication safety, and monitoring during pregnancy.',
+    button: 'Get the Free GI Checklist',
+    href: '/gi-doctor-questions',
   },
   'uc-surgery-colectomy': {
     heading: 'Facing a major UC decision?',
