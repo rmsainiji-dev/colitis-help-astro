@@ -23,6 +23,40 @@ function getClinicalTrialsUrl(abbr: string) {
 
 const trialsUrl = getClinicalTrialsUrl(stateAbbr);
 
+const stateData: Record<string, { intro: string; medicaid: string; population: string }> = {
+  'Texas': {
+    intro: 'Texas has one of the largest populations of IBD patients in the United States, with major IBD specialty centers in Houston, Dallas, San Antonio, and Austin. If you are managing ulcerative colitis in Texas, you have access to a growing network of gastroenterologists and IBD specialists across the state.',
+    medicaid: 'Texas Medicaid (Texas Healthcare Transformation) covers biologic medications for UC when medical necessity is documented. Prior authorization is required for most biologics. Patients who do not qualify for Medicaid may be eligible for patient assistance programs offered directly by biologic manufacturers.',
+    population: 'Texas',
+  },
+  'California': {
+    intro: 'California is home to some of the leading IBD research and treatment centers in the country, including programs at UCSF, UCLA, Cedars-Sinai, and UC San Diego. Patients managing ulcerative colitis in California have access to a wide range of gastroenterology specialists, clinical trials, and IBD-focused dietitians.',
+    medicaid: 'Medi-Cal (California Medicaid) covers biologic medications for UC including infliximab, adalimumab, vedolizumab, and ustekinumab when prescribed by a gastroenterologist with documented medical necessity. California also has strong consumer protections around prior authorization timelines.',
+    population: 'California',
+  },
+  'Florida': {
+    intro: 'Florida has a large and growing IBD patient community, with gastroenterology practices and IBD specialty centers in Miami, Tampa, Orlando, and Jacksonville. Managing ulcerative colitis in Florida means navigating a large healthcare system — having the right questions ready for your GI appointment is essential.',
+    medicaid: 'Florida Medicaid covers UC medications including mesalamine and biologic therapies when prior authorization criteria are met. Florida also has a high concentration of clinical trials for IBD, particularly in the Miami and Tampa areas.',
+    population: 'Florida',
+  },
+  'New York': {
+    intro: 'New York State is home to world-class IBD centers including those at Mount Sinai, NYU Langone, Columbia, and Weill Cornell. Patients with ulcerative colitis in New York have access to some of the most experienced gastroenterologists and IBD researchers in the country, as well as a robust clinical trial network.',
+    medicaid: 'New York Medicaid (NY Medicaid) provides coverage for UC medications including biologics and JAK inhibitors when medically necessary. New York has strong prior authorization protections and step therapy override laws that may help patients access the treatment their doctor recommends.',
+    population: 'New York',
+  },
+  'Illinois': {
+    intro: 'Illinois has a strong network of IBD specialists, particularly in the Chicago metropolitan area, with programs at Northwestern Medicine, University of Chicago Medicine, Rush University Medical Center, and Advocate Health. Patients managing ulcerative colitis in Illinois have access to comprehensive care including gastroenterology, IBD-focused nutrition, and mental health support.',
+    medicaid: 'Illinois Medicaid covers biologic medications for UC when prior authorization requirements are met. Illinois has enacted step therapy reform legislation that provides some protections for patients whose doctors recommend specific biologic therapies.',
+    population: 'Illinois',
+  },
+};
+
+const stateInfo = stateData[stateName] ?? {
+  intro: `${stateName} has a community of patients managing ulcerative colitis who benefit from access to gastroenterology specialists, IBD-focused care, and educational resources. If you are living with UC in ${stateName}, understanding your treatment options, insurance coverage, and when to seek specialist care can make a significant difference in your outcomes.`,
+  medicaid: `Medicaid coverage for UC medications varies by state. In ${stateName}, biologic medications are generally covered when medical necessity is documented by a gastroenterologist and prior authorization requirements are met. Contact your state Medicaid office or speak with your GI doctor's office about coverage options in ${stateName}.`,
+  population: stateName,
+};
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalWebPage',
@@ -54,6 +88,14 @@ const relatedArticles = [
         This page provides educational resources for people managing ulcerative colitis (UC) in {stateName}. It covers treatment options, insurance guidance, clinical trials, and how to find a GI specialist. This is not medical advice — always consult a licensed healthcare provider.
       </QuickAnswerBox>
       <h2>Understanding UC: what every patient in {stateName} should know</h2>
+      <div class="mb-8 p-5 rounded-xl" style="background-color: #E8F5F0; border-left: 4px solid #1B7A4E;">
+        <p class="text-sm font-semibold mb-2" style="color: #0B2545;">
+          Ulcerative Colitis Help in {stateName}
+        </p>
+        <p class="text-sm leading-relaxed" style="color: #5C5C56;">
+          {stateInfo.intro}
+        </p>
+      </div>
       <p>Ulcerative colitis is a chronic inflammatory bowel disease (IBD) that causes inflammation and ulcers in the lining of the colon and rectum. It affects an estimated 600,000–900,000 Americans, and patients in {stateName} have access to a range of treatment and care options.</p>
       <p>UC typically follows a pattern of flares (active symptoms) and remission (minimal or no symptoms). Proper treatment — guided by a gastroenterologist — can help most people achieve and maintain remission.</p>
       <h2>Treatment options for UC patients</h2>
@@ -83,6 +125,14 @@ const relatedArticles = [
         <li><strong>ACA marketplace plans:</strong> UC is a pre-existing condition that cannot be used to deny coverage or charge higher premiums under the Affordable Care Act.</li>
         <li><strong>Non-profit assistance:</strong> Organizations like the <a href="https://www.crohnscolitisfoundation.org" target="_blank" rel="noopener noreferrer" style="color: #0E6B8E">Crohn's &amp; Colitis Foundation</a> and <a href="https://www.needymeds.org" target="_blank" rel="noopener noreferrer" style="color: #0E6B8E">NeedyMeds</a> can help patients find financial support.</li>
       </ul>
+      <div class="my-6 p-5 rounded-xl" style="background-color: #FFF8EC; border-left: 4px solid #C8902A;">
+        <p class="text-sm font-semibold mb-2" style="color: #0B2545;">
+          Insurance and Medicaid Coverage in {stateName}
+        </p>
+        <p class="text-sm leading-relaxed" style="color: #5C5C56;">
+          {stateInfo.medicaid}
+        </p>
+      </div>
       <h2>Clinical trials for UC patients in {stateName}</h2>
       <p>Clinical trials test new treatments for UC and can give eligible patients access to investigational therapies at no cost. Participating in a trial can also contribute to research that may benefit future patients.</p>
       <p>To search for trials currently enrolling patients in {stateName}, visit the <a href={trialsUrl} target="_blank" rel="noopener noreferrer" style="color: #0E6B8E">ClinicalTrials.gov search for UC trials near you</a>. Discuss any trial with your gastroenterologist before enrolling.</p>
